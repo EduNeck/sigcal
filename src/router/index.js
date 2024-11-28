@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import MenuIngreso from '@/components/MenuIngreso.vue'; 
 import LoginSistema from '@/components/LoginSistema.vue';
 import MenuUrbano from '@/components/MenuUrbano.vue';
+import FormPredios from '@/components/urbano/FormPredios.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,13 @@ const routes = [
     name: 'MenuUrbano',
     component: MenuUrbano, 
   },
+
+  {
+    path: '/form-predios',
+    name: 'FormPredios',
+    component: FormPredios, 
+  },
+
 ];
 
 export default new Router({

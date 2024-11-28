@@ -24,9 +24,9 @@
   </v-content>
 </template>
   
-  <script>
+<script>
   export default {
     name: 'MenuIngreso',
   };
-  </script>
+</script>
   
