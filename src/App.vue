@@ -5,24 +5,27 @@
       <v-spacer></v-spacer>
       <v-btn text rounded @click="$router.push('/menu-ingreso')">Home</v-btn>      
     </v-app-bar>
-    <!-- Rutas -->  
-    <router-view></router-view>
-    <v-footer color = "primary lighten-1">
+    <v-main>
+      <!-- Rutas -->
+      <router-view></router-view>
+    </v-main>
+    <v-footer color="primary lighten-1">
       <v-row justify="center" no-gutters>
         <v-col class="text-center mt-4" cols="12">
           {{ new Date().getFullYear() }} — <strong>SIGCAL</strong>
         </v-col>
       </v-row>
-    </v-footer>   
+    </v-footer>
   </v-app>
 </template>
+
 <script>
-  export default {
-    name: 'App',
-    data() {
-      return {
-        showPassword: false,
-      }
+export default {
+  name: 'App',
+  data() {
+    return {
+      showPassword: false,
     }
   }
+}
 </script>
