@@ -10,7 +10,7 @@
                 </template> 
                 <!-- Lista de opciones del menú --> 
                 <v-list> 
-                    <v-list-item @click="$router.push('/form-predios')"> 
+                    <v-list-item @click="$router.push('/navegacion-predios')"> 
                         <v-list-item-title>Ingreso Predio</v-list-item-title>
                     </v-list-item> 
                     <v-list-item @click="$router.push('/opcion2')"> 

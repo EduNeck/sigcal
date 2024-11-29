@@ -28,7 +28,7 @@
   import FotoFachada from './FormFotoFachada.vue';
   
   export default {
-    name: 'FormPredios',
+    name: 'NavegacionPredios',
     data() {
       return {
         activeTab: 0,
