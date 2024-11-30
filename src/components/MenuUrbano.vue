@@ -59,7 +59,14 @@
                     </v-list-item> 
                 </v-list>                
             </v-menu>              
-            
+            <!-- Salir --> 
+            <v-menu offset-y> 
+                <template v-slot:activator="{ on, attrs }"> 
+                    <v-btn color="primary" dark v-bind="attrs" v-on="on" @click="$router.push('/menu-ingreso')" > 
+                        Salir
+                    </v-btn> 
+                </template>               
+            </v-menu>                
             
         </v-container>
     </v-content>
