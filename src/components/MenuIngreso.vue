@@ -9,11 +9,15 @@
             <v-col cols="auto">              
               <v-btn color="blue lighten-1" 
                      density="compact" 
-                     @click="$router.push('/menu-urbano')">Menu Urbano</v-btn>
+                     @click="$router.push('/menu-urbano')">Menu Urbano
+              </v-btn>
             </v-col>
 
             <v-col cols="auto">              
-              <v-btn color="green lighten-1" density="comfortable">Menu Rural</v-btn>
+              <v-btn color="green" 
+                     density="compact" 
+                     @click="$router.push('/menu-rural')">Menu Rural
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>

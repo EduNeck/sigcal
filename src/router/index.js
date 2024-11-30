@@ -11,6 +11,15 @@ import FormObrasMejoras from '@/components/urbano/FormObrasMejoras.vue';
 import FormObservaciones from '@/components/urbano/FormObservaciones.vue';
 import FormVias from '@/components/urbano/FormVias.vue';
 import NavegacionPredios from '@/components/urbano/NavegacionPredios.vue';
+import MenuRural from '@/components/MenuRural.vue';
+import FormTenenciasRural from '@/components/rural/FormTenenciasRural.vue';
+import FormBloquesRural from '@/components/rural/FormBloquesRural.vue';
+import FormCaracteristicasRural from '@/components/rural/FormCaracteristicasRural.vue';
+import FormFotoFachadaRural from '@/components/rural/FormFotoFachadaRural.vue';
+import FormObrasMejorasRural from '@/components/rural/FormObrasMejorasRural.vue';
+import FormObservacionesRural from '@/components/rural/FormObservacionesRural.vue';
+import FormViasRural from '@/components/rural/FormViasRural.vue';
+import NavegacionPrediosRural from '@/components/rural/NavegacionPrediosRural.vue';
 
 
 Vue.use(Router);
@@ -28,10 +37,17 @@ const routes = [
     component: MenuIngreso, 
   },
 
+  /* Menus Sistema */
   {
     path: '/menu-urbano',
     name: 'MenuUrbano',
     component: MenuUrbano, 
+  },
+
+  {
+    path: '/menu-rural',
+    name: 'MenuRural',
+    component: MenuRural, 
   },
 
   {
@@ -40,6 +56,13 @@ const routes = [
     component: NavegacionPredios, 
   },
 
+  {
+    path: '/navegacion-predios-rurales',
+    name: 'NavegacionPrediosRurales',
+    component: NavegacionPrediosRural, 
+  },
+
+  /* Urbano Catastro */
   {
     path: '/form-tenencia',
     name: 'FormTenencias',
@@ -80,6 +103,49 @@ const routes = [
     path: '/form-vias',
     name: 'FormVias',
     component: FormVias, 
+  },
+
+  /* Rural Catastro */
+  {
+    path: '/form-tenencia-ru',
+    name: 'FormTenenciasRural',
+    component: FormTenenciasRural, 
+  },
+
+  {
+    path: '/form-bloques-ru',
+    name: 'FormBloquesRural',
+    component: FormBloquesRural, 
+  },
+
+  {
+    path: '/form-caracteristicas-ru',
+    name: 'FormCaracteristicasRural',
+    component: FormCaracteristicasRural, 
+  },
+
+  {
+    path: '/form-foto-ru',
+    name: 'FormFotoFachadaRural',
+    component: FormFotoFachadaRural, 
+  },
+
+  {
+    path: '/form-obras-ru',
+    name: 'FormObrasRural',
+    component: FormObrasMejorasRural, 
+  },
+
+  {
+    path: '/form-observaciones-ru',
+    name: 'FormObservacionesRural',
+    component: FormObservacionesRural, 
+  },
+
+  {
+    path: '/form-vias-ru',
+    name: 'FormViasRural',
+    component: FormViasRural, 
   },
 
 ];
