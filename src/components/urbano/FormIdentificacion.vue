@@ -10,7 +10,7 @@
         </v-row>        
         <!-- Primer Bloque -->
         <v-card class="mb-5">
-          <v-card-title>Identificación</v-card-title>
+          <v-card-title>BLOQUE CONSTRUCTIVO - PISO</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
@@ -50,7 +50,7 @@
 
         <!-- Segundo Bloque -->
         <v-card class="mb-5">
-          <v-card-title>Clave Catastral</v-card-title>
+          <v-card-title>CLAVE CATASTRAL</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
@@ -80,7 +80,7 @@
 
         <!-- Tercer Bloque -->
         <v-card class="mb-5">
-          <v-card-title>Propiedad Horizontal</v-card-title>
+          <v-card-title>PROPIEDAD HORIZONTAL</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
@@ -109,7 +109,7 @@
 
         <!-- Cuarto Bloque -->
         <v-card class="mb-5">
-          <v-card-title>Áreas</v-card-title>
+          <v-card-title>ÁREAS</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
@@ -144,7 +144,7 @@
 
         <!-- Quinto Bloque -->
         <v-card class="mb-5">
-          <v-card-title>Ejes Viales</v-card-title>
+          <v-card-title>EJES VIALES</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
