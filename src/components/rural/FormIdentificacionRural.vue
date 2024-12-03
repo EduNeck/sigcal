@@ -5,7 +5,7 @@
         <v-row justify="center" class="mt-0 mb-1">
           <v-col cols="auto" class="d-flex justify-center"> 
             <v-btn color="green" @click="submitForm" class="mx-2">Guardar</v-btn> 
-            <v-btn color="green" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+            <v-btn color="green" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
           </v-col>
         </v-row>        
         <!-- Primer Bloque -->
@@ -113,13 +113,16 @@
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Alicuota" v-model="form.alicuota" type="number"></v-text-field>
+                <v-text-field label="Alicuota" 
+                 v-model="form.alicuota" type="number"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Área de Terreno" v-model="form.area_terreno" type="number"></v-text-field>
+                <v-text-field label="Área de Terreno" 
+                 v-model="form.area_terreno" type="number"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Área Común de Terreno" v-model="form.area_comun_terreno" type="number"></v-text-field>
+                <v-text-field label="Área Común de Terreno" 
+                v-model="form.area_comun_terreno" type="number"></v-text-field>
               </v-col>            
 
               <v-col cols="12" sm="6" md="4">                
@@ -133,10 +136,12 @@
               </v-col>
               
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Área Individual Construida" v-model="form.area_individual_construida" type="number"></v-text-field>
+                <v-text-field label="Área Individual Construida" 
+                v-model="form.area_individual_construida" type="number"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Área Común Construida" v-model="form.area_comun_construida" type="number"></v-text-field>
+                <v-text-field label="Área Común Construida" 
+                v-model="form.area_comun_construida" type="number"></v-text-field>
               </v-col>
             </v-row>
           </v-card-text>
@@ -148,13 +153,16 @@
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Eje Principal" v-model="form.eje_principal"></v-text-field>
+                <v-text-field label="Eje Principal"
+                 v-model="form.eje_principal"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Eje Secundario" v-model="form.eje_secundario"></v-text-field>
+                <v-text-field label="Eje Secundario" 
+                 v-model="form.eje_secundario"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Sector" v-model="form.sector"></v-text-field>
+                <v-text-field label="Sector" 
+                 v-model="form.sector"></v-text-field>
               </v-col>
             </v-row>
           </v-card-text>
@@ -226,7 +234,7 @@ export default {
       console.log(this.form);
       // Lógica para enviar el formulario
     },
-    navigateToMenuUrbano() { 
+    navigateToMenuRural() { 
       this.$router.push('/menu-rural'); 
     }
   }

@@ -5,7 +5,7 @@
           <v-row justify="center" class="mt-0 mb-1">
             <v-col cols="auto" class="d-flex justify-center"> 
               <v-btn color="green" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="green" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+              <v-btn color="green" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
             </v-col>
           </v-row>        
           <!-- Primer Bloque -->
@@ -311,8 +311,8 @@
         console.log(this.form);
         // Lógica para enviar el formulario
       },
-      navigateToMenuUrbano() { 
-        this.$router.push('/menu-urbano'); 
+      navigateToMenuRural() { 
+        this.$router.push('/menu-rural'); 
       }
     }
   }

@@ -5,7 +5,7 @@
           <v-row justify="center" class="mt-0 mb-1">
             <v-col cols="auto" class="d-flex justify-center"> 
               <v-btn color="green" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="green" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+              <v-btn color="green" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
             </v-col>
           </v-row>        
           <!-- Primer Bloque -->
@@ -31,19 +31,24 @@
               <v-row>
 
                 <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Informador" v-model="form.id_informador"></v-text-field>
+                  <v-text-field label="Informador" 
+                  v-model="form.id_informador"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Actualizador" v-model="form.actualizador"></v-text-field>
+                  <v-text-field label="Actualizador" 
+                  v-model="form.actualizador"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Fecha Actualización" v-model="form.fecha_actualizacion_aud" type="date"></v-text-field>
+                  <v-text-field label="Fecha Actualización" 
+                  v-model="form.fecha_actualizacion_aud" type="date"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Supervisor" v-model="form.id_fiscalizador"></v-text-field>
+                  <v-text-field label="Supervisor" 
+                  v-model="form.id_fiscalizador"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Fecha Supervición" v-model="form.fecha_fiscalizacion" type="date"></v-text-field>
+                  <v-text-field label="Fecha Supervición" 
+                  v-model="form.fecha_fiscalizacion" type="date"></v-text-field>
                 </v-col>
 
               </v-row>
@@ -116,8 +121,8 @@
         console.log(this.form);
         // Lógica para enviar el formulario
       },
-      navigateToMenuUrbano() { 
-        this.$router.push('/menu-urbano'); 
+      navigateToMenuRural() { 
+        this.$router.push('/menu-rural'); 
       }
     }
   }

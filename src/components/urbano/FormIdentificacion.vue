@@ -10,7 +10,7 @@
         </v-row>        
         <!-- Primer Bloque -->
         <v-card class="mb-5">
-          <v-card-title>BLOQUE CONSTRUCTIVO - PISO</v-card-title>
+          <v-card-title>IDENTIFICACIÓN</v-card-title>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="6" md="4">

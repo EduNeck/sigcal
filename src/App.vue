@@ -1,9 +1,17 @@
 <template>
   <v-app class="custom-background">
     <v-app-bar app color="primary" dark>
-      <v-toolbar-title style="font-size: 20px; color: white;">Gobierno Autónomo Descentralizado Intercultural y Plurinacional del Municipio de Cayambe</v-toolbar-title>
+      <v-img
+        src="@/assets/logo.png"
+        contain
+        height="40"
+        class="mr-3"
+      ></v-img>
+      <v-toolbar-title style="font-size: 20px; color: white;">
+        Gobierno Autónomo Descentralizado Intercultural y Plurinacional del Municipio de Cayambe
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-btn text rounded @click="$router.push('/menu-ingreso')">Home</v-btn>    -->   
+      <!-- <v-btn text rounded @click="$router.push('/menu-ingreso')">Home</v-btn> -->   
     </v-app-bar>
     <v-main>
       <!-- Rutas -->
@@ -18,6 +26,8 @@
     </v-footer>
   </v-app>
 </template>
+
+
 
 <script>
 export default {
