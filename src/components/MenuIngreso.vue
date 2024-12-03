@@ -9,7 +9,7 @@
             <v-container>
               <v-row align="center" justify="center" direction="column">
                 <v-col cols="auto" class="mb-2">              
-                  <v-btn color="blue lighten-1" 
+                  <v-btn color="primary" 
                          density="compact" 
                          style="color: white;"
                          @click="$router.push('/menu-urbano')">Urbano                         

@@ -1,6 +1,6 @@
 <template>
   <v-app class="custom-background">
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="gray" dark>
       <v-img
         src="@/assets/logo.png"
         contain
@@ -17,7 +17,7 @@
       <!-- Rutas -->
       <router-view></router-view>
     </v-main>
-    <v-footer color="primary lighten-1">
+    <v-footer app color="gray" dark>
       <v-row justify="center" no-gutters>
         <v-col class="text-center mt-4" cols="12">
           {{ new Date().getFullYear() }} — <strong>SIGCAL</strong>
@@ -26,8 +26,6 @@
     </v-footer>
   </v-app>
 </template>
-
-
 
 <script>
 export default {
@@ -42,6 +40,9 @@ export default {
 
 <style scoped>
 .custom-background {
+  background-image: url('@/assets/fondo-cayambe.png');
+  background-size: cover;
+  min-height: 100vh;
   background-color: #f5f5f5; 
 }
 </style>

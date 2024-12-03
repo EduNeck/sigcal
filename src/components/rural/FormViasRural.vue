@@ -4,8 +4,8 @@
         <v-form>
           <v-row justify="center" class="mt-0 mb-1">
             <v-col cols="auto" class="d-flex justify-center"> 
-              <v-btn color="green" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="green" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
+              <v-btn color="green" style="color: white;" @click="submitForm" class="mx-2">Guardar</v-btn> 
+              <v-btn color="green" style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
             </v-col>
           </v-row>        
           <!-- Primer Bloque -->
@@ -50,7 +50,7 @@
   
           <v-row justify="center">
             <v-col cols="auto">
-              <v-btn color="green" @click="submitForm">Guardar</v-btn>
+              <v-btn color="green" style="color: white;" @click="submitForm">Guardar</v-btn>
             </v-col>
           </v-row>
         </v-form>

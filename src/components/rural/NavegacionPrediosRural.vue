@@ -1,20 +1,18 @@
 <template>
-    <v-content>
-      <v-container>
-        <v-tabs  v-model="activeTab" background-color="green" dark centered grow show-arrows>
-          <v-tab v-for="(tab, index) in tabs" :key="index">
-            {{ tab.label }}
-          </v-tab>
-        </v-tabs>  
-        <v-tabs-items  v-model="activeTab">
-          <v-tab-item v-for="(tab, index) in tabs" :key="index">
-            <v-container>
-              <component :is="tab.component"></component>
-            </v-container>
-          </v-tab-item>
-        </v-tabs-items>
-      </v-container>
-    </v-content>
+    <v-container>
+      <v-tabs  v-model="activeTab" background-color="green" dark centered grow show-arrows>
+        <v-tab v-for="(tab, index) in tabs" :key="index">
+          {{ tab.label }}
+        </v-tab>
+      </v-tabs>  
+      <v-tabs-items  v-model="activeTab">
+        <v-tab-item v-for="(tab, index) in tabs" :key="index">
+          <v-container>
+            <component :is="tab.component"></component>
+          </v-container>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-container>
   </template>
   
   <script>

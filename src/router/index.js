@@ -20,6 +20,12 @@ import FormObrasMejorasRural from '@/components/rural/FormObrasMejorasRural.vue'
 import FormObservacionesRural from '@/components/rural/FormObservacionesRural.vue';
 import FormViasRural from '@/components/rural/FormViasRural.vue';
 import NavegacionPrediosRural from '@/components/rural/NavegacionPrediosRural.vue';
+import ValoracionUrbana from '@/components/valoracion/ValoracionUrbana.vue';
+import ValoracionRural from '@/components/valoracion/ValoracionRural.vue';
+import FormGestionDocumental from '@/components/urbano/FormGestionDocumental.vue';
+import FormGestionDocumentalRural from '@/components/rural/FormGestionDocumentalRural.vue';
+import GridListadoUrbano from '@/components/urbano/GridListadoUrbano.vue';
+import GridListadoRural from '@/components/rural/GridListadoRural.vue';
 
 
 Vue.use(Router);
@@ -147,6 +153,47 @@ const routes = [
     name: 'FormViasRural',
     component: FormViasRural, 
   },
+
+  /* Valoración */ 
+  {
+    path: '/valora-urbana',
+    name: 'ValoracionUrbana',
+    component: ValoracionUrbana, 
+  },
+
+  {
+    path: '/valora-rural',
+    name: 'ValoracionRural',
+    component: ValoracionRural, 
+  },
+
+  /* Listado Predios */
+  {
+    path: '/grid-listado-urbano',
+    name: 'ListadoUrbano',
+    component: GridListadoUrbano, 
+  },
+
+  {
+    path: '/grid-listado-rural',
+    name: 'ListadoRural',
+    component: GridListadoRural, 
+  },
+
+
+  /* Gestion Documental */
+  {
+    path: '/gestion-doc-urbana',
+    name: 'GestionDocUrbana',
+    component: FormGestionDocumental, 
+  },
+
+  {
+    path: '/gestion-doc-rural',
+    name: 'GestionDocRural',
+    component: FormGestionDocumentalRural, 
+  },
+
 
 ];
 
