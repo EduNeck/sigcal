@@ -26,6 +26,7 @@ import FormGestionDocumental from '@/components/urbano/FormGestionDocumental.vue
 import FormGestionDocumentalRural from '@/components/rural/FormGestionDocumentalRural.vue';
 import GridListadoUrbano from '@/components/urbano/GridListadoUrbano.vue';
 import GridListadoRural from '@/components/rural/GridListadoRural.vue';
+import MapaCayambe from '@/components/visor/MapaCayambe.vue';
 
 
 Vue.use(Router);
@@ -192,6 +193,13 @@ const routes = [
     path: '/gestion-doc-rural',
     name: 'GestionDocRural',
     component: FormGestionDocumentalRural, 
+  },
+
+  /* Visor */
+  {
+    path: '/visor',
+    name: 'Visor',
+    component: MapaCayambe, 
   },
 
 
