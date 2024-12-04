@@ -4,6 +4,7 @@
         <v-form>
           <v-row justify="center" class="mt-0 mb-1">
             <v-col cols="auto" class="d-flex justify-center"> 
+              <v-btn color="primary" @click="submitForm" class="mx-2">Nuevo</v-btn> 
               <v-btn color="primary" @click="submitForm" class="mx-2">Guardar</v-btn> 
               <v-btn color="primary" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
             </v-col>

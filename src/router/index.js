@@ -27,6 +27,8 @@ import FormGestionDocumentalRural from '@/components/rural/FormGestionDocumental
 import GridListadoUrbano from '@/components/urbano/GridListadoUrbano.vue';
 import GridListadoRural from '@/components/rural/GridListadoRural.vue';
 import MapaCayambe from '@/components/visor/MapaCayambe.vue';
+import BusquedaPrediosUrbanos from '@/components/urbano/BusquedaPrediosUrbanos.vue';
+import FormIngresoCiudadano from '@/components/parametrizacion/FormIngresoCiudadano.vue';
 
 
 Vue.use(Router);
@@ -200,6 +202,20 @@ const routes = [
     path: '/visor',
     name: 'Visor',
     component: MapaCayambe, 
+  },
+
+  /* Busqueda */
+  {
+    path: '/busqueda-urbana',
+    name: 'BusquedaUrbana',
+    component: BusquedaPrediosUrbanos, 
+  },
+
+  /* Parametrización */
+  {
+    path: '/ingreso-ciudadano',
+    name: 'IngresoCiudadano',
+    component: FormIngresoCiudadano, 
   },
 
 
