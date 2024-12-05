@@ -1,13 +1,13 @@
 <template>
   <v-app class="custom-background">
-    <v-app-bar app color="gray" dark>
+    <v-app-bar app color="gray" dark class="custom-app-bar">
       <v-img
         src="@/assets/logo.png"
         contain
-        height="40"
+        height="60"
         class="mr-3"
       ></v-img>
-      <v-toolbar-title style="font-size: 20px; color: white;">
+      <v-toolbar-title class="toolbar-title">
         Gobierno Autónomo Descentralizado Intercultural y Plurinacional del Municipio de Cayambe
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -27,6 +27,8 @@
   </v-app>
 </template>
 
+
+
 <script>
 export default {
   name: 'App',
@@ -45,4 +47,19 @@ export default {
   min-height: 100vh;
   background-color: #f5f5f5; 
 }
+
+.custom-app-bar {
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 10px; /* Ajusta esto según tus necesidades */
+  display: flex;
+  align-items: center; /* Alinea el contenido verticalmente */
+}
+
+.toolbar-title {
+  font-size: 30px;
+  color: white;
+  line-height: 50px; /* Ajusta esto según la altura de la app-bar */
+}
 </style>
+
+
