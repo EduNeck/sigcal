@@ -14,7 +14,7 @@
         <v-card-title>IDENTIFICACIÓN</v-card-title>
         <v-card-text>
           <v-row>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-select 
                 :items="tipoPredios" 
                 label="Tipo de Predio" 
@@ -24,7 +24,7 @@
               ></v-select>
             </v-col>
 
-            <v-col cols="12" sm="6" md="4">                
+            <v-col cols="12" sm="6" md="2">                
               <v-select 
                 :items="regimenPropiedad" 
                 label="Régimen de Propiedad" 
@@ -54,25 +54,25 @@
         <v-card-title>CLAVE CATASTRAL</v-card-title>
         <v-card-text>
           <v-row>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Provincia" v-model="form.id_prov"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Cantón" v-model="form.id_can"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Parroquia" v-model="form.id_par"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Zona" v-model="form.cod_zon"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Sector" v-model="form.cod_sec"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Polígono/Manzana" v-model="form.cod_pol_man"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="1">
               <v-text-field label="Predio" v-model="form.cod_pred"></v-text-field>
             </v-col>
           </v-row>
@@ -84,14 +84,14 @@
         <v-card-title>PROPIEDAD HORIZONTAL</v-card-title>
         <v-card-text>
           <v-row>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Unidad" v-model="form.cod_uni"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Bloque" v-model="form.cod_bloq"></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="6" md="4">                
+            <v-col cols="12" sm="6" md="2">                
               <v-select 
                 :items="tipoPiso" 
                 label="Tipo de Piso" 
@@ -101,7 +101,7 @@
               ></v-select>
             </v-col>
 
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Piso" v-model="form.cod_piso"></v-text-field>
             </v-col>
           </v-row>
@@ -113,17 +113,17 @@
         <v-card-title>ÁREAS</v-card-title>
         <v-card-text>
           <v-row>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Alicuota" v-model="form.alicuota" type="number"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Área de Terreno" v-model="form.area_terreno" type="number"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Área Común de Terreno" v-model="form.area_comun_terreno" type="number"></v-text-field>
             </v-col>            
 
-            <v-col cols="12" sm="6" md="4">                
+            <v-col cols="12" sm="6" md="2">                
               <v-select 
                 :items="unidadArea" 
                 label="Unidad de Área" 
@@ -133,10 +133,10 @@
               ></v-select>
             </v-col>
             
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Área Individual Construida" v-model="form.area_individual_construida" type="number"></v-text-field>
             </v-col>
-            <v-col cols="12" sm="6" md="4">
+            <v-col cols="12" sm="6" md="2">
               <v-text-field label="Área Común Construida" v-model="form.area_comun_construida" type="number"></v-text-field>
             </v-col>
           </v-row>
