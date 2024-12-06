@@ -5,10 +5,11 @@
         src="@/assets/logo.png"
         contain
         height="60"
-        class="mr-3"
+        width="120"
+        class="mr-3 logo"
       ></v-img>
       <v-toolbar-title class="toolbar-title">
-        Gobierno Autónomo Descentralizado Intercultural y Plurinacional del Municipio de Cayambe
+        GADM Gobierno Autónomo Descentralizado Intercultural y Plurinacional del Municipio de Cayambe
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- <v-btn text rounded @click="$router.push('/menu-ingreso')">Home</v-btn> -->   
@@ -58,6 +59,8 @@ export default {
   color: white;
   line-height: 50px; /* Ajusta esto según la altura de la app-bar */
 }
+
+.logo {
+  width: 60px; /* Ajusta esto según tus necesidades */
+}
 </style>
-
-
