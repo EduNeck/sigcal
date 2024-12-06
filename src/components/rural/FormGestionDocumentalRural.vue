@@ -58,7 +58,7 @@
       },
 
       navigateToMenuUrbano() { 
-       this.$router.push('/menu-urbano'); 
+       this.$router.push('/menu-rural'); 
       }
     }
   }

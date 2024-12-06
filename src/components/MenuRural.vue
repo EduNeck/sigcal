@@ -20,16 +20,16 @@
         </template>
         <!-- Lista de opciones del menú -->
         <v-list>
-              <v-list-item @click="$router.push('/navegacion-predios')">
+              <v-list-item @click="$router.push('/navegacion-predios-rurales')">
                 <v-list-item-title>Ingreso Predio</v-list-item-title>
               </v-list-item>
-              <v-list-item @click="$router.push('/busqueda-urbana')">
+              <v-list-item @click="$router.push('/busqueda-rural')">
                 <v-list-item-title>Busqueda Predial</v-list-item-title>
               </v-list-item>
-              <v-list-item @click="$router.push('/grid-listado-urbano')">
+              <v-list-item @click="$router.push('/grid-listado-rural')">
                 <v-list-item-title>Listado Predial</v-list-item-title>
               </v-list-item>              
-              <v-list-item @click="$router.push('/gestion-doc-urbana')">
+              <v-list-item @click="$router.push('/gestion-doc-rural')">
                 <v-list-item-title>Gestion Documental</v-list-item-title>
               </v-list-item>
             </v-list>
