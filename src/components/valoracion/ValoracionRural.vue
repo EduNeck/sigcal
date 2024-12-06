@@ -1,7 +1,7 @@
 <template>
     <v-container>
       <v-card class="mx-auto" max-width="500">
-        <v-card-title class="d-flex justify-center"><h3>VALORACIÓN URBANA</h3></v-card-title>
+        <v-card-title class="d-flex justify-center"><h3>VALORACIÓN RURAL</h3></v-card-title>
         <v-btn color="green" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
         <v-card-text>
           <v-form>

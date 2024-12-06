@@ -29,6 +29,7 @@ import GridListadoRural from '@/components/rural/GridListadoRural.vue';
 import MapaCayambe from '@/components/visor/MapaCayambe.vue';
 import BusquedaPrediosUrbanos from '@/components/urbano/BusquedaPrediosUrbanos.vue';
 import FormIngresoCiudadano from '@/components/parametrizacion/FormIngresoCiudadano.vue';
+import BusquedaPrediosRural from '@/components/rural/BusquedaPrediosRural.vue';
 
 
 Vue.use(Router);
@@ -209,6 +210,12 @@ const routes = [
     path: '/busqueda-urbana',
     name: 'BusquedaUrbana',
     component: BusquedaPrediosUrbanos, 
+  },
+
+  {
+    path: '/busqueda-rural',
+    name: 'BusquedaRural',
+    component: BusquedaPrediosRural, 
   },
 
   /* Parametrización */

@@ -36,7 +36,8 @@
       
       <v-col cols="9">
         <v-card class="mx-auto" max-width="900">
-          <v-card-title class="d-flex justify-center"><h3>Visor Geográfico</h3></v-card-title>
+          <v-card-title class="d-flex justify-center"><h3>Visor Geográfico</h3>
+          </v-card-title>
           <v-card-text>
             <l-map
               :zoom="zoom"
@@ -66,8 +67,6 @@
     </v-row>
   </v-container>
 </template>
-
-
 
 <script>
 import { LMap, LTileLayer, LMarker, LLayerGroup } from 'vue2-leaflet';
