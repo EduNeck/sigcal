@@ -125,8 +125,7 @@
     <v-col cols="auto">
         <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="green" dark class="mb-3" 
-              v-bind="attrs" v-on="on" @click="$router.push('rural')">
+          <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on" @click="navigateToMenuIngreso()">
               Salir
             </v-btn>
         </template>
@@ -154,7 +153,7 @@
             } else if (tipo === 'rural') {
                 this.$router.push('/menu-rural');
             } else {
-                this.$router.push('/menu-ingreso'); // Fallback en caso de que no se especifique el tipo
+                this.$router.push('/menu-ingreso'); 
             }
         }
     }
