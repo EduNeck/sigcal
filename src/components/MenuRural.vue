@@ -1,10 +1,10 @@
 <template>
-<v-container class="mt-1 d-flex justify-center">
+<v-container class="mt-1 d-flex justify-center fondo-menu">
     <v-row align="center" justify="center" class="menu-container">
     <v-col cols="auto">
         <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on" @click="navigateToVisor('rural')">
+            <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on" @click="navigateToVisor('rural')">
             Visor
             </v-btn>
         </template>
@@ -14,7 +14,7 @@
     <v-col cols="auto">
         <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on">
+            <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on">
             Gestión Catastral
             </v-btn>
         </template>
@@ -39,7 +39,7 @@
     <v-col cols="auto">
         <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on">
+            <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on">
             Reportes
             </v-btn>
         </template>
@@ -75,7 +75,7 @@
     <v-col cols="auto">
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on">
+              <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on">
                 Valoración
               </v-btn>
             </template>
@@ -109,7 +109,7 @@
         <v-col cols="auto">
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on">
+              <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on">
                 Parametrización
               </v-btn>
             </template>
@@ -125,7 +125,7 @@
     <v-col cols="auto">
         <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="green" dark class="mb-3" v-bind="attrs" v-on="on" @click="navigateToMenuIngreso()">
+          <v-btn color=#668A4C class="custom-text-color" dark  v-bind="attrs" v-on="on" @click="navigateToMenuIngreso()">
               Salir
             </v-btn>
         </template>
@@ -166,4 +166,13 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.fondo-menu {
+  background-color: #ACCC7B;
+}
+
+.custom-text-color {
+  color: #F1ECE7; /* Color de letras personalizado */
+}
+
 </style>

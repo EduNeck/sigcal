@@ -1,11 +1,11 @@
 <template>
   <v-app class="custom-background">
-    <v-app-bar app color="gray" dark class="custom-app-bar">
+    <v-app-bar app color= #F1ECE7 dark class="custom-app-bar">
       <v-img
         src="@/assets/logo.png"
         contain
         height="60"
-        width="120"
+        width="250"
         class="mr-3 logo"
       ></v-img>
       <v-toolbar-title class="toolbar-title">
@@ -18,10 +18,13 @@
       <!-- Rutas -->
       <router-view></router-view>
     </v-main>
-    <v-footer app color="gray" dark>
+    <v-footer app color= #F1ECE7 dark>
       <v-row justify="center" no-gutters>
-        <v-col class="text-center mt-4" cols="12">
-          {{ new Date().getFullYear() }} — <strong>SIGCAL</strong>
+        <v-col class="text-center mt-4" cols="12"> 
+          <strong>
+            <span style="color: #090909;">{{ new Date().getFullYear() }}</span> 
+            <span style="color: #090909;"> SIGCAL</span>
+          </strong>
         </v-col>
       </v-row>
     </v-footer>
@@ -41,10 +44,10 @@ export default {
 
 <style scoped>
 .custom-background {
-  background-image: url('@/assets/fondo-cayambe.png');
-  background-size: cover;
+  /*background-image: url('@/assets/fondo-cayambe.png');
+  background-size: cover; */
+  background-color: #114358;
   min-height: 100vh;
-  background-color: #f5f5f5; 
 }
 
 .custom-app-bar {
@@ -56,8 +59,9 @@ export default {
 
 .toolbar-title {
   font-size: 30px;
-  color: white;
+  color: #090909;
   line-height: 50px; /* Ajusta esto según la altura de la app-bar */
+  font-weight: bold;
 }
 
 .logo {
