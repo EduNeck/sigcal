@@ -57,13 +57,13 @@
     color: #F2AA1F; /* Color de texto de las pestañas inactivas */
     font-weight: bold;
     transition: all 0.3s ease;
-    background-color: #114358; /* Fondo de las pestañas inactivas */
+    background-color: #276E90; /* Fondo de las pestañas inactivas */
   }
   
   .custom-tab--active {
     color: #F1ECE7; /* Color de texto de la pestaña activa */
     font-weight: bold;
-    background-color: #276E90; /* Fondo de la pestaña activa */
+    background-color: #114358; /* Fondo de la pestaña activa */
   }
   </style>
   

@@ -61,7 +61,7 @@ export default {
   font-size: 30px;
   color: #090909;
   line-height: 50px; /* Ajusta esto según la altura de la app-bar */
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 .logo {
