@@ -7,8 +7,7 @@
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Valorar</v-btn>
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
       </v-col>
-    </v-row>
-      
+    </v-row>      
     <!-- Primer Bloque -->
     <v-card class="mb-3 block-color fill-width">
       <v-card-title class="centered-title">IDENTIFICACIÓN</v-card-title>

@@ -78,6 +78,8 @@
         <v-btn color="grey" @click="guardar">Guardar</v-btn>
         <v-btn color="secondary" @click="limpiarFormulario">Limpiar</v-btn>
         <v-btn color="secondary" @click="navigateToMenu">Salir</v-btn>
+        
+        <v-btn color="#114358" class="mx-2 custom-text-color" @click="navigateBack">Regresar</v-btn>
       </v-card-actions>
     </v-card>
   </v-container>
@@ -124,6 +126,9 @@ export default {
       } else {
         this.$router.push('/menu-ingreso'); // Fallback en caso de que no se especifique el tipo
       }
+    },
+    navigateBack() { 
+      this.$router.go(-1); // Navega a la pantalla anterior en la historia del navegador
     }
   }
 }

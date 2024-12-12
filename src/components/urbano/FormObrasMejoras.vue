@@ -1,69 +1,66 @@
 <template>
-    <v-content class="custom-background">
-      <v-container>
-        <v-form>
-          <v-row justify="center" class="mt-0 mb-1">
-            <v-col cols="auto" class="d-flex justify-center"> 
-              <v-btn color="primary" @click="submitForm" class="mx-2">Nuevo</v-btn> 
-              <v-btn color="primary" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="primary" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
-            </v-col>
-          </v-row>        
-          <!-- Primer Bloque -->
-          <v-card class="mb-5">
-            <v-card-title>OBRAS - MEJORAS</v-card-title>
-            <v-card-text>
-              <v-row>
-                <v-col cols="12" sm="6" md="12">
-                  <v-select 
-                    :items="tipoObra" 
-                    label="Tipo de Obra" 
-                    v-model="form.id_tipo_obra" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="12">                
-                  <v-select 
-                    :items="materiales" 
-                    label="Materia" 
-                    v-model="form.id_material" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Área o Dimensión" 
-                    v-model="form.area" type="number">
-                  </v-text-field>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="4">                
-                  <v-select 
-                    :items="estadoConservacion" 
-                    label="Estado de Conservación" 
-                    v-model="form.id_estado" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
+  <v-container class="container">
+    <v-row justify="center" class="mb-1">
+      <v-col cols="auto" class="d-flex justify-center"> 
+        <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Nuevo</v-btn> 
+        <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn> 
+        <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
+      </v-col>
+    </v-row>        
+    <!-- Primer Bloque -->
+    <v-card class="mb-3">
+      <v-card-title>OBRAS - MEJORAS</v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" sm="6" md="12">
+            <v-select 
+              :items="tipoObra" 
+              label="Tipo de Obra" 
+              v-model="form.id_tipo_obra" 
+              item-text="name" 
+              item-value="value" 
+            ></v-select>
+          </v-col>
 
-              </v-row>
-            </v-card-text>
-          </v-card>
-   
-          <v-row justify="center">
-            <v-col cols="auto">
-              <v-btn color="primary" @click="submitForm">Guardar</v-btn>
-            </v-col>
-          </v-row>
-        </v-form>
-      </v-container>
-    </v-content>
-  </template>
-  
+          <v-col cols="12" sm="6" md="12">                
+            <v-select 
+              :items="materiales" 
+              label="Materia" 
+              v-model="form.id_material" 
+              item-text="name" 
+              item-value="value" 
+            ></v-select>
+          </v-col>
+
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field label="Área o Dimensión" 
+              v-model="form.area" type="number">
+            </v-text-field>
+          </v-col>
+
+          <v-col cols="12" sm="6" md="4">                
+            <v-select 
+              :items="estadoConservacion" 
+              label="Estado de Conservación" 
+              v-model="form.id_estado" 
+              item-text="name" 
+              item-value="value" 
+            ></v-select>
+          </v-col>
+
+        </v-row>
+      </v-card-text>
+    </v-card>
+
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-btn class="custom-text-color" color=#114358 @click="submitForm">Guardar</v-btn>
+      </v-col>
+    </v-row>
+
+  </v-container>
+</template>  
+
   <script>
   export default {
     name: 'FormObrasMejoras',
@@ -97,8 +94,8 @@
         },
         // Listados
         tipoObra: [ 
-          { name: 'CISTERNA', value: 1 }, 
-          { name: 'CUBIERTA ESTRUCTURA MADERA TERRAZA', value: 2 } 
+          { name: 'OBRAS ESPECIALES', value: 1 }, 
+          { name: 'MEJORAS', value: 2 } 
         ],
         materiales: [ 
           { name: 'PILOTAJE HORMIGÓN ARMADO', value: 1 }, 
@@ -106,8 +103,10 @@
           { name: 'METÁLICA ENROLLABLE', value: 3 }  
         ],
         estadoConservacion: [ 
-          { name: 'BUENO', value: 1 }, 
-          { name: 'REGULAR', value: 2 }        
+          { name: 'MUY BUENO', value: 1 }, 
+          { name: 'BUENO', value: 2 },
+          { name: 'REGULAR', value: 1 }, 
+          { name: 'MALO', value: 2 }        
         ]    
       }
     },
@@ -123,9 +122,40 @@
   }
   </script>
   
-  <style scoped>
-  .custom-background {
-    background-color: #f5f5f5; 
-  }
-  </style>
+<style scoped>
+.container {
+  background-color: #276E90; /* Fondo */
+  border: 0; /* Borde personalizado */
+  padding: 0; /* Eliminar padding */
+  margin: 0; /* Eliminar margen */
+}
+
+.block-color {
+  background-color: #F1ECE7;
+  color: #114358; 
+}
+
+.custom-text-color {
+  color: #F1ECE7; 
+}
+
+.vertical-divider { 
+  height: 30px; /* Altura de la línea */ 
+  align-self: center; 
+  margin: 0 16px; /* Espaciado a los lados de la línea */ 
+  border-left: 2px solid #114358;
+}
+
+.centered-title { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  text-align: center;
+}
+
+.fill-width { 
+  width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
+}
+</style>
   
