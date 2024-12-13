@@ -1,11 +1,11 @@
 <template>
     <v-container>
-      <v-card class="mx-auto" max-width="1200">
+      <v-card class="mx-auto block-color" max-width="1800">
         <v-card-title class="d-flex justify-center"><h3>LISTADO PREDIAL URBANO</h3></v-card-title>
-        <v-btn color="primary" style="color: white;" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+        <v-btn color=#114358 style="color: white;" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark v-bind="attrs" v-on="on" style="color: white;">Exportar</v-btn>
+            <v-btn color=#114358 dark v-bind="attrs" v-on="on" style="color: white;">Exportar</v-btn>
           </template>
           <v-list>
             <v-list-item @click="print">
@@ -34,7 +34,7 @@
                 append-icon="mdi-magnify"
                 label="Buscar"
                 single-line
-                hide-details
+                hide-details                
               ></v-text-field>
             </v-toolbar>
           </template>
@@ -109,6 +109,11 @@
   .mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .block-color {
+    background-color: #F1ECE7;
+    color: #114358; 
   }
   </style>
   

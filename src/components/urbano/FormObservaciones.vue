@@ -1,63 +1,57 @@
 <template>
-    <v-content class="custom-background">
-      <v-container>
-        <v-form>
-          <v-row justify="center" class="mt-0 mb-1">
-            <v-col cols="auto" class="d-flex justify-center"> 
-              <v-btn color="primary" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="primary" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+    <v-container class="container">
+      <v-row justify="center" class="mb-1">
+        <v-col cols="auto" class="d-flex justify-center"> 
+          <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn> 
+          <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
+        </v-col>
+      </v-row>        
+      <!-- Primer Bloque -->
+      <v-card class="mb-3 block-color fill-width">
+        <v-card-title class="centered-title">OBASERVACIONES</v-card-title>
+        <v-card-text>
+          <v-row>
+
+            <v-col cols="12" sm="6" md="12">
+              <v-text-field label="Observación" 
+                v-model="form.observacion_ficha" type="textarea"
+                color = #F2AA1F>
+              </v-text-field>
             </v-col>
-          </v-row>        
-          <!-- Primer Bloque -->
-          <v-card class="mb-5">
-            <v-card-title>OBASERVACIONES</v-card-title>
-            <v-card-text>
-              <v-row>
-  
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Observación" 
-                    v-model="form.observacion_ficha" type="textarea">
-                  </v-text-field>
-                </v-col>
-  
-              </v-row>
-            </v-card-text>
-          </v-card>
-  
-          <!-- Segundo Bloque -->
-          <v-card class="mb-5">
-            <v-card-title>RESPONSABLES</v-card-title>
-            <v-card-text>
-              <v-row>
 
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Informador" v-model="form.id_informador"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Actualizador" v-model="form.actualizador"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Fecha Actualización" v-model="form.fecha_actualizacion_aud" type="date"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Supervisor" v-model="form.id_fiscalizador"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Fecha Supervición" v-model="form.fecha_fiscalizacion" type="date"></v-text-field>
-                </v-col>
-
-              </v-row>
-            </v-card-text>
-          </v-card>
-
-           <v-row justify="center">
-            <v-col cols="auto">
-              <v-btn color="primary" @click="submitForm">Guardar</v-btn>
+          </v-row>
+        </v-card-text>
+      </v-card>
+      <!-- Segundo Bloque -->
+      <v-card class="mb-3 block-color fill-width">
+        <v-card-title>RESPONSABLES</v-card-title>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Informador" v-model="form.id_informador" color = #F2AA1F></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Actualizador" v-model="form.actualizador" color = #F2AA1F></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Fecha Actualización" v-model="form.fecha_actualizacion_aud" type="date" color = #F2AA1F></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Supervisor" v-model="form.id_fiscalizador" color = #F2AA1F></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Fecha Supervición" v-model="form.fecha_fiscalizacion" type="date" color = #F2AA1F></v-text-field>
             </v-col>
           </v-row>
-        </v-form>
-      </v-container>
-    </v-content>
+        </v-card-text>
+      </v-card>
+      <!-- Botón -->
+      <v-row justify="center">
+        <v-col cols="auto">
+          <v-btn class="custom-text-color" color=#114358 @click="submitForm">Guardar</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
   </template>
   
   <script>
@@ -124,8 +118,39 @@
   </script>
   
   <style scoped>
-  .custom-background {
-    background-color: #f5f5f5; 
-  }
+.container {
+  background-color: #276E90; /* Fondo */
+  border: 0; /* Borde personalizado */
+  padding: 0; /* Eliminar padding */
+  margin: 0; /* Eliminar margen */
+}
+
+.block-color {
+  background-color: #F1ECE7;
+  color: #114358; 
+}
+
+.custom-text-color {
+  color: #F1ECE7; 
+}
+
+.vertical-divider { 
+  height: 30px; /* Altura de la línea */ 
+  align-self: center; 
+  margin: 0 16px; /* Espaciado a los lados de la línea */ 
+  border-left: 2px solid #114358;
+}
+
+.centered-title { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  text-align: center;
+}
+
+.fill-width { 
+  width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
+}
   </style>
   

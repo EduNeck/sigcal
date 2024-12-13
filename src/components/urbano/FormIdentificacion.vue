@@ -259,11 +259,11 @@ export default {
       this.form.id_tipo_piso = ''; 
       this.form.cod_piso = '';
     },
-     formatoDecimal(field){
+    formatoDecimal(field){
       if(this.form[field] !== ''){
         this.form[field] = parseFloat(this.form[field]).toFixed(2);
       }
-     }
+    }
 
   }
 }
@@ -304,6 +304,5 @@ export default {
 .fill-width { 
   width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
 }
-
 
 </style>

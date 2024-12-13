@@ -1,6 +1,6 @@
 <template>
     <v-container class="container">
-      <v-row justify="center" class="mt-0 mb-1">
+      <v-row justify="center" class="mb-1">
         <v-col cols="auto" class="d-flex justify-center"> 
           <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Nuevo</v-btn> 
           <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn> 
@@ -14,13 +14,19 @@
           <v-row>
 
             <v-col cols="12" sm="6" md="2">
-              <v-text-field label="Código Unidad" 
-                v-model="form.cod_uni" type="number"></v-text-field>
+              <v-text-field 
+                label="Código Unidad" 
+                v-model="form.cod_uni" 
+                type="number"
+                color = #F2AA1F></v-text-field>
             </v-col>
             
             <v-col cols="12" sm="6" md="2">
-              <v-text-field label="Código de Bloque" 
-              v-model="form.cod_bloq" type="number"></v-text-field>
+              <v-text-field 
+                label="Código de Bloque" 
+                v-model="form.cod_bloq" 
+                type="number"
+                color = #F2AA1F></v-text-field>
             </v-col>
 
             <v-col cols="12" sm="6" md="2">                
@@ -30,13 +36,15 @@
                 v-model="form.id_tipo_piso" 
                 item-text="name" 
                 item-value="value" 
-                color = #F2AA1F
-              ></v-select>
+                color = #F2AA1F></v-select>
             </v-col>
 
             <v-col cols="12" sm="6" md="2">
-              <v-text-field label="Código de Piso" 
-              v-model="form.cod_piso" type="number"></v-text-field>
+              <v-text-field 
+                label="Código de Piso" 
+                v-model="form.cod_piso" 
+                type="number"
+                color = #F2AA1F></v-text-field>
             </v-col>
 
           </v-row>
@@ -45,7 +53,7 @@
 
       <!-- Segundo Bloque -->
       <v-card class="mb-3 block-color fill-width">
-        <v-card-title> DATOS DESCRIPTIVOS DEL BLOQUE CONSTRUCTIVO - PISO</v-card-title>
+        <v-card-title class="centered-title"> DATOS DESCRIPTIVOS DEL BLOQUE CONSTRUCTIVO - PISO</v-card-title>
         <v-card-text>
           <v-row>
 

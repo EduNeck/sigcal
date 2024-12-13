@@ -15,7 +15,6 @@
     </v-tabs-items>
   </v-container>
 </template>
-
   
   <script>
   import Identificacion from './FormIdentificacion.vue';
