@@ -79,7 +79,7 @@
         <v-btn color="secondary" @click="limpiarFormulario">Limpiar</v-btn>
         <v-btn color="secondary" @click="navigateToMenu">Salir</v-btn>
         
-        <v-btn color="#114358" class="mx-2 custom-text-color" @click="navigateBack">Regresar</v-btn>
+        <v-btn  color="secondary" class="mx-2 custom-text-color" @click="navigateBack">Regresar</v-btn>
       </v-card-actions>
     </v-card>
   </v-container>

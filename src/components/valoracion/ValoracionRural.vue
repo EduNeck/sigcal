@@ -1,8 +1,8 @@
 <template>
     <v-container>
-      <v-card class="mx-auto" max-width="500">
+      <v-card class="mx-auto block-color" max-width="500">
         <v-card-title class="d-flex justify-center"><h3>VALORACIÓN RURAL</h3></v-card-title>
-        <v-btn color="green" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
+        
         <v-card-text>
           <v-form>
             <v-row>
@@ -11,6 +11,7 @@
                   label="Clave Catastral"
                   v-model="claveCatastral"
                   required
+                  color = #F2AA1F
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
@@ -19,6 +20,7 @@
                   v-model="anioValoracion"
                   type="number"
                   required
+                  color = #F2AA1F
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -26,7 +28,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green" @click="submitForm">Valorar</v-btn>
+          <v-btn color=#668A4C style="color: white;" @click="submitForm">Valorar</v-btn>
+          <v-btn color=#668A4C style="color: white;" @click="navigateToMenuUrbano" class="mx-2">Salir</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
@@ -59,6 +62,10 @@
   .mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+  .block-color {
+    background-color: #F1ECE7;
+    color: #668A4C; 
   }
   </style>
   

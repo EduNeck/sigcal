@@ -1,67 +1,70 @@
-<template>
-    <v-content class="custom-background">
-      <v-container>
-        <v-form>
-          <v-row justify="center" class="mt-0 mb-1">
-            <v-col cols="auto" class="d-flex justify-center"> 
-              <v-btn color="green" style="color: white;" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="green" style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
-            </v-col>
-          </v-row>        
-          <!-- Primer Bloque -->
-          <v-card class="mb-5">
-            <v-card-title>OBRAS - MEJORAS</v-card-title>
-            <v-card-text>
-              <v-row>
-                <v-col cols="12" sm="6" md="12">
-                  <v-select 
-                    :items="tipoObra" 
-                    label="Tipo de Obra" 
-                    v-model="form.id_tipo_obra" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="12">                
-                  <v-select 
-                    :items="materiales" 
-                    label="Materia" 
-                    v-model="form.id_material" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field label="Área o Dimensión" 
-                    v-model="form.area" type="number">
-                  </v-text-field>
-                </v-col>
-  
-                <v-col cols="12" sm="6" md="4">                
-                  <v-select 
-                    :items="estadoConservacion" 
-                    label="Estado de Conservación" 
-                    v-model="form.id_estado" 
-                    item-text="name" 
-                    item-value="value" 
-                  ></v-select>
-                </v-col>
+<template>    
+  <v-container class="container">    
+    <v-row justify="center" class="mb-1">
+      <v-col cols="auto" class="d-flex justify-center"> 
+        <v-btn color=#668A4C style="color: white;" @click="submitForm" class="mx-2">Guardar</v-btn> 
+        <v-btn color=#668A4C style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
+      </v-col>
+    </v-row>        
+    <!-- Primer Bloque -->
+    <v-card class="mb-3 block-color fill-width">
+      <v-card-title class="centered-title">OBRAS - MEJORAS</v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" sm="6" md="4">
+            <v-select 
+              :items="tipoObra" 
+              label="Tipo de Obra" 
+              v-model="form.id_tipo_obra" 
+              item-text="name" 
+              item-value="value"
+              color = #F2AA1F
+            ></v-select>
+          </v-col>
 
-              </v-row>
-            </v-card-text>
-          </v-card>
-   
-          <v-row justify="center">
-            <v-col cols="auto">
-              <v-btn color="green" style="color: white;" @click="submitForm">Guardar</v-btn>
-            </v-col>
-          </v-row>
-        </v-form>
-      </v-container>
-    </v-content>
-  </template>
+          <v-col cols="12" sm="6" md="4">                
+            <v-select 
+              :items="materiales" 
+              label="Materia" 
+              v-model="form.id_material" 
+              item-text="name" 
+              item-value="value"
+              color = #F2AA1F
+            ></v-select>
+          </v-col>
+
+          <v-col cols="12" sm="6" md="2">
+            <v-text-field label="Área o Dimensión" 
+              v-model="form.area" 
+              type="number"
+              color = #F2AA1F
+              @input="formatDecimal('area')">
+            </v-text-field>
+          </v-col>
+
+          <v-col cols="12" sm="6" md="2">                
+            <v-select 
+              :items="estadoConservacion" 
+              label="Estado de Conservación" 
+              v-model="form.id_estado" 
+              item-text="name" 
+              item-value="value"
+              color = #F2AA1F 
+            ></v-select>
+          </v-col>
+
+        </v-row>
+      </v-card-text>
+    </v-card>
+
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-btn color=#668A4C style="color: white;" @click="submitForm">Guardar</v-btn>
+      </v-col>
+    </v-row>
+    
+  </v-container>    
+</template>
   
   <script>
   export default {
@@ -94,19 +97,56 @@
           eje_secundario: '',
           sector: ''
         },
-        // Listados
-        tipoObra: [ 
-          { name: 'CISTERNA', value: 1 }, 
-          { name: 'CUBIERTA ESTRUCTURA MADERA TERRAZA', value: 2 } 
+       // Listados
+       tipoObra: [ 
+          { name: 'ÁREA VERDE EXTERIOR', value: 1 }, 
+          { name: 'CANCHA DE ARCILLA', value: 2 }, 
+          { name: 'CANCHA DE CÉSPED SINTÉTICO', value: 3 }, 
+          { name: 'CANCHA ENCEMENTADA', value: 4 }, 
+          { name: 'CANCHA ENGRAMADA', value: 5 }, 
+          { name: 'CERRAMIENTO BLOQUE/LADRILLO/ESTRUCTURA HORMIGÓN ARMADO', value: 6 }, 
+          { name: 'CERRAMIENTO ADOBE O TAPIAL', value: 7 }, 
+          { name: 'CERRAMIENTO MALLA SOBRE MAMPOSTERÍA', value: 8 }, 
+          { name: 'CERRAMIENTO DE PIEDRA', value: 9 }, 
+          { name: 'CERRAMIENTO DE HIERRO', value: 10 }, 
+          { name: 'CISTERNA', value: 11 }, 
+          { name: 'CUBIERTA ESTRUCTURA MADERA TERRAZA', value: 12 }, 
+          { name: 'CUBIERTA ESTRUCTURA METÁLICA H.A. EN TERRAZA', value: 13 }, 
+          { name: 'CUBIERTA ESTRUCTURA METÁLICA HIERRO EN TERRAZA', value: 14 }, 
+          { name: 'INVERNADERO DE TUBO', value: 15 }, 
+          { name: 'LAVANDERÍA / SECADERO ABIERTO', value: 16 }, 
+          { name: 'MURO DE GAVIONES', value: 17 }, 
+          { name: 'MURO DE HORMIGÓN', value: 18 }, 
+          { name: 'MURO INCLINADO DE PIEDRA', value: 19 }, 
+          { name: 'PISCINA', value: 20 }, 
         ],
         materiales: [ 
-          { name: 'PILOTAJE HORMIGÓN ARMADO', value: 1 }, 
-          { name: 'PIEDRA', value: 2 },
-          { name: 'METÁLICA ENROLLABLE', value: 3 }  
+          { name: 'ACERO', value: 1 }, 
+          { name: 'ASBESTO / CEMENTO', value: 2 }, 
+          { name: 'ACERO HORMIGÓN', value: 3 }, 
+          { name: 'ADOBE', value: 4 }, 
+          { name: 'ADOQUÍN', value: 5 }, 
+          { name: 'BAHAREQUE', value: 6 }, 
+          { name: 'BLOQUE', value: 7 }, 
+          { name: 'CAÑA', value: 8 }, 
+          { name: 'CÉSPED SINTÉTICO', value: 9 }, 
+          { name: 'ENCEMENTADO', value: 10 }, 
+          { name: 'HORMIGÓN SIMPLE', value: 11 }, 
+          { name: 'LADRILLO', value: 12 }, 
+          { name: 'LÁMINAS DE TOL CORRUGADO', value: 13 }, 
+          { name: 'LOSA HORMIGÓN ARMADO', value: 14 }, 
+          { name: 'MADERA COMÚN', value: 15 }, 
+          { name: 'METÁLICA ENROLLABLE', value: 16 }, 
+          { name: 'PIEDRA', value: 17 }, 
+          { name: 'PILOTAJE HORMIGÓN ARMADO', value: 18 }, 
+          { name: 'TEJAS', value: 19 }, 
+
         ],
         estadoConservacion: [ 
-          { name: 'BUENO', value: 1 }, 
-          { name: 'REGULAR', value: 2 }        
+          { name: 'MUY BUENO', value: 1 }, 
+          { name: 'BUENO', value: 2 },
+          { name: 'REGULAR', value: 3 }, 
+          { name: 'MALO', value: 4 }        
         ]    
       }
     },
@@ -123,8 +163,39 @@
   </script>
   
   <style scoped>
-  .custom-background {
-    background-color: #f5f5f5; 
-  }
+.container {
+  background-color: #ACCC7B; /* Fondo */
+  border: 0; /* Borde personalizado */
+  padding: 0; /* Eliminar padding */
+  margin: 0; /* Eliminar margen */
+}
+
+.block-color {
+  background-color: #F1ECE7;
+  color: #668A4C; 
+}
+
+.custom-text-color {
+  color: #F1ECE7; 
+}
+
+.vertical-divider { 
+  height: 30px; /* Altura de la línea */ 
+  align-self: center; 
+  margin: 0 16px; /* Espaciado a los lados de la línea */ 
+  border-left: 2px solid #668A4C;
+}
+
+.centered-title { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  text-align: center;
+}
+
+.fill-width { 
+  width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
+}
   </style>
   

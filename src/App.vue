@@ -46,7 +46,7 @@ export default {
 .custom-background {
   /*background-image: url('@/assets/fondo-cayambe.png');
   background-size: cover; */
-  background-color: #114358;
+  background-color: #464646;
   min-height: 100vh;
 }
 

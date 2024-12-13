@@ -1,11 +1,11 @@
 <template>
     <v-container>
-      <v-card class="mx-auto" max-width="1200">
+      <v-card class="mx-auto block-color" max-width="1800">
         <v-card-title class="d-flex justify-center"><h3>LISTADO PREDIAL URBANO</h3></v-card-title>
-        <v-btn color="green" style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
+        <v-btn color=#668A4C style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="green" dark v-bind="attrs" v-on="on" style="color: white;">Exportar</v-btn>
+            <v-btn color=#668A4C dark v-bind="attrs" v-on="on" style="color: white;">Exportar</v-btn>
           </template>
           <v-list>
             <v-list-item @click="print">
@@ -109,6 +109,10 @@
   .mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+  .block-color {
+   background-color: #F1ECE7;
+   color: #668A4C; 
   }
   </style>
   

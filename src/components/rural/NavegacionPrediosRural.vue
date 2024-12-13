@@ -1,7 +1,8 @@
 <template>
     <v-container>
-      <v-tabs  v-model="activeTab" background-color="green" dark centered grow show-arrows>
-        <v-tab v-for="(tab, index) in tabs" :key="index">
+      <v-tabs  v-model="activeTab" centered grow class="custom-tabs">
+        <v-tab v-for="(tab, index) in tabs" 
+          :key="index" :class="{ 'custom-tab--active': activeTab === index }" class="custom-tab">
           {{ tab.label }}
         </v-tab>
       </v-tabs>  
@@ -45,3 +46,22 @@
   };
   </script>
   
+  <style scoped>
+  .custom-tabs {
+    background-color: #ACCC7B;/* Color de fondo de las pestañas */
+    color: #F2AA1F;
+  }
+  
+  .custom-tab {
+    color: #F2AA1F; /* Color de texto de las pestañas inactivas */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #ACCC7B; /* Fondo de las pestañas inactivas */
+  }
+  
+  .custom-tab--active {
+    color: #F1ECE7; /* Color de texto de la pestaña activa */
+    font-weight: bold;
+    background-color: #668A4C; /* Fondo de la pestaña activa */
+  }
+  </style>

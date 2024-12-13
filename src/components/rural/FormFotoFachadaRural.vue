@@ -1,56 +1,50 @@
 <template>
-    <v-content class="custom-background">
-      <v-container>
-        <v-form>
-          <v-row justify="center" class="mt-0 mb-1">
-            <v-col cols="auto" class="d-flex justify-center"> 
-              <v-btn color="green" style="color: white;" @click="submitForm" class="mx-2">Guardar</v-btn> 
-              <v-btn color="green" style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
-            </v-col>
-          </v-row>        
-          <!-- Primer Bloque -->
-          <v-card class="mb-5">
-            <v-card-title>FOTO FACHADA</v-card-title>
-            <v-card-text>
-              <v-row>
+  <v-container>
+    <v-row justify="center" class="mb-1">
+      <v-col cols="auto" class="d-flex justify-center"> 
+        <v-btn color=#668A4C style="color: white;" @click="submitForm" class="mx-2">Guardar</v-btn> 
+        <v-btn color=#668A4C style="color: white;" @click="navigateToMenuRural" class="mx-2">Salir</v-btn>
+      </v-col>
+    </v-row>       
 
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Descripción" 
-                    v-model="form.descripcion">
-                  </v-text-field>
-                </v-col>
+    <!-- Primer Bloque -->
+    <v-card class="mb-3 block-color fill-width">
+      <v-card-title>FOTO FACHADA</v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" sm="6" md="6">
+            <v-text-field label="Descripción" 
+              v-model="form.descripcion"
+              color = #F2AA1F>
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-text-field label="Archivo" 
+              v-model="form.foto" type="file"
+              color = #F2AA1F>
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-select 
+              :items="validacion" 
+              label="Foto Principal" 
+              v-model="form.principal" 
+              item-text="name" 
+              item-value="value" 
+              color = #F2AA1F
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
 
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Archivo" 
-                    v-model="form.foto" type="data">
-                  </v-text-field>
-                </v-col>                
-
-                <v-col cols="12" sm="6" md="12">
-                  <v-text-field label="Archivo" 
-                    v-model="form.foto" type="file">
-                  </v-text-field>
-                </v-col>     
-  
-                <v-col cols="12" sm="6" md="2">
-                  <v-text-field label="Foto Principal" 
-                    v-model="form.foto" type="checkbox">
-                  </v-text-field>                  
-                </v-col>
-
-              </v-row>
-            </v-card-text>
-          </v-card>
-    
-          <v-row justify="center">
-            <v-col cols="auto">
-              <v-btn color="green" style="color: white;" @click="submitForm">Guardar</v-btn>
-            </v-col>
-          </v-row>
-        </v-form>
-      </v-container>
-    </v-content>
-  </template>
+    <v-row justify="center">
+      <v-col cols="auto">
+        <v-btn color=#668A4C style="color: white;" @click="submitForm">Guardar</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
   
   <script>
   export default {
@@ -116,8 +110,39 @@
   </script>
   
   <style scoped>
-  .custom-background {
-    background-color: #f5f5f5; 
-  }
+.container {
+  background-color: #ACCC7B; /* Fondo */
+  border: 0; /* Borde personalizado */
+  padding: 0; /* Eliminar padding */
+  margin: 0; /* Eliminar margen */
+}
+
+.block-color {
+  background-color: #F1ECE7;
+  color: #668A4C; 
+}
+
+.custom-text-color {
+  color: #F1ECE7; 
+}
+
+.vertical-divider { 
+  height: 30px; /* Altura de la línea */ 
+  align-self: center; 
+  margin: 0 16px; /* Espaciado a los lados de la línea */ 
+  border-left: 2px solid #668A4C;
+}
+
+.centered-title { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  text-align: center;
+}
+
+.fill-width { 
+  width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
+}
   </style>
   
