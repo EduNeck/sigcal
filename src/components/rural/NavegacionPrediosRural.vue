@@ -25,6 +25,7 @@
   import Obras from './FormObrasMejorasRural.vue';
   import Observaciones from './FormObservacionesRural.vue';
   import FotoFachada from './FormFotoFachadaRural.vue';
+  import Vivienda from './FormViviendaRural.vue';
   
   export default {
     name: 'NavegacionPredios',
@@ -39,6 +40,7 @@
           { label: 'Construcción', component: Construccion },
           { label: 'Obras', component: Obras },
           { label: 'Observaciones', component: Observaciones },
+          { label: 'Vivienda', component: Vivienda },
           { label: 'Foto Fachada', component: FotoFachada },
         ]
       };

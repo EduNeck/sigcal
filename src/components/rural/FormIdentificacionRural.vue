@@ -168,6 +168,16 @@
           <v-col cols="12" sm="6" md="4">
             <v-text-field label="Sector" color = #F2AA1F v-model="form.sector"></v-text-field>
           </v-col>
+
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field label="Área Gráfica" 
+             color = #F2AA1F 
+             v-model="form.area_comun_construida" 
+             type="number"
+             @input="formatDecimal('area_comun_construida')">
+            </v-text-field>
+          </v-col>
+
         </v-row>
       </v-card-text>
     </v-card>

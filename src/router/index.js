@@ -30,6 +30,16 @@ import MapaCayambe from '@/components/visor/MapaCayambe.vue';
 import BusquedaPrediosUrbanos from '@/components/urbano/BusquedaPrediosUrbanos.vue';
 import FormIngresoCiudadano from '@/components/parametrizacion/FormIngresoCiudadano.vue';
 import BusquedaPrediosRural from '@/components/rural/BusquedaPrediosRural.vue';
+import FormVivienda from '@/components/urbano/FormVivienda.vue';
+import FormViviendaRural from '@/components/rural/FormViviendaRural.vue';
+import GridFichasRegistradasUrb from '@/components/urbano/reportes/GridFichasRegistradasUrb.vue';
+import GridPisosRegistradosUrb from '@/components/urbano/reportes/GridPisosRegistradosUrb.vue';
+import GridTenenciaUrb from '@/components/urbano/reportes/GridTenenciaUrb.vue';
+import GridTenenciaPredio from '@/components/urbano/reportes/GridTenenciaPredio.vue';
+import GridFrentesRegistrados from '@/components/urbano/reportes/GridFrentesRegistrados.vue';
+import GridMejorasRegistradas from '@/components/urbano/reportes/GridMejorasRegistradas.vue';
+import GridViviendasRegistradas from '@/components/urbano/reportes/GridViviendasRegistradas.vue';
+import GridContribuyentesRegistrados from '@/components/urbano/reportes/GridContribuyentesRegistrados.vue';
 
 
 Vue.use(Router);
@@ -115,6 +125,12 @@ const routes = [
     component: FormVias, 
   },
 
+  {
+    path: '/form-vivienda',
+    name: 'FormVivienda',
+    component: FormVivienda, 
+  },
+
   /* Rural Catastro */
   {
     path: '/form-tenencia-ru',
@@ -156,6 +172,12 @@ const routes = [
     path: '/form-vias-ru',
     name: 'FormViasRural',
     component: FormViasRural, 
+  },
+
+  {
+    path: '/form-vivienda-rural',
+    name: 'FormViviendaRural',
+    component: FormViviendaRural, 
   },
 
   /* Valoración */ 
@@ -225,6 +247,54 @@ const routes = [
     component: FormIngresoCiudadano, 
   },
 
+  /* Reportes Urbanos */
+  {
+    path: '/fichas-registradas-urb',
+    name: 'FichasRegistradasUrb',
+    component: GridFichasRegistradasUrb, 
+  },
+
+  {
+    path: '/pisos-registrados-urb',
+    name: 'PisosRegistradosUrb',
+    component: GridPisosRegistradosUrb, 
+  },
+
+  {
+    path: '/tenencia-urb',
+    name: 'TenenciaUrb',
+    component: GridTenenciaUrb, 
+  },
+
+  {
+    path: '/tenencia-predio-urb',
+    name: 'TenenciaPredioUrb',
+    component: GridTenenciaPredio, 
+  },
+
+  {
+    path: '/frentes-registrados',
+    name: 'FrentesRegistrados',
+    component: GridFrentesRegistrados, 
+  },
+
+  {
+    path: '/mejoras-registradas',
+    name: 'MejorasRegistradas',
+    component: GridMejorasRegistradas, 
+  },
+
+  {
+    path: '/vivienda-registrada',
+    name: 'ViviendaRegistrada',
+    component: GridViviendasRegistradas, 
+  },
+
+  {
+    path: '/contribuyentes-registrados',
+    name: 'ContribuyenteRegistrado',
+    component: GridContribuyentesRegistrados, 
+  },
 
 ];
 

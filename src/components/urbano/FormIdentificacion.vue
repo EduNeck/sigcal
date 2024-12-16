@@ -4,6 +4,7 @@
       <v-col cols="auto" class="d-flex justify-center"> 
         <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn>
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Imprimir Ficha</v-btn>
+        <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Documentos</v-btn>
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Valorar</v-btn>
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
       </v-col>
@@ -166,6 +167,14 @@
           <v-col cols="12" sm="6" md="4">
             <v-text-field label="Sector" color = #F2AA1F v-model="form.sector"></v-text-field>
           </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field label="Área Gráfica" 
+             color = #F2AA1F 
+             v-model="form.area_comun_construida" 
+             type="number"
+             @input="formatDecimal('area_comun_construida')">
+            </v-text-field>
+          </v-col>          
         </v-row>
       </v-card-text>
     </v-card>

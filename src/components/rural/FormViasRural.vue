@@ -49,6 +49,18 @@
               @input="formatDecimal('longitud')">
             </v-text-field>
           </v-col>   
+
+          <v-col cols="12" sm="6" md="3">                
+            <v-select 
+              :items="validacion" 
+              label="Aceras y Bordillos" 
+              v-model="form.aceras" 
+              item-text="name" 
+              item-value="value"
+              color = #F2AA1F 
+            ></v-select>
+          </v-col>    
+
         </v-row>
       </v-card-text>
     </v-card>

@@ -2,72 +2,70 @@
     <v-container>
       <v-row justify="center" class="mb-1">
         <v-col cols="auto" class="d-flex justify-center"> 
-          <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Nuevo</v-btn> 
-          <v-btn color=#114358 @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn> 
-          <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
+          <v-btn color=#668A4C @click="submitForm" class="mx-2 custom-text-color">Nuevo</v-btn> 
+          <v-btn color=#668A4C @click="submitForm" class="mx-2 custom-text-color">Guardar</v-btn> 
+          <v-btn color=#668A4C @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
         </v-col>
       </v-row>     
 
       <!-- Primer Bloque -->
       <v-card class="mb-3 block-color fill-width">
-        <v-card-title class="centered-title">VIAS</v-card-title>
+        <v-card-title class="centered-title">VIVIENDA</v-card-title>
         <v-card-text>
           <v-row>
 
             <v-col cols="12" sm="6" md="3">
-              <v-text-field label="Nombre Vía" 
+              <v-text-field label="Código de vivienda" 
                v-model="form.nombre_via" type="text"
                color = #F2AA1F></v-text-field>
-            </v-col>                   
-
-            <v-col cols="12" sm="6" md="3">                
-              <v-select 
-                :items="tipoVia" 
-                label="Tipo de via" 
-                v-model="form.id_tipo_via" 
-                item-text="name" 
-                item-value="value"
-                color = #F2AA1F 
-              ></v-select>
             </v-col>
-            
-            <v-col cols="12" sm="6" md="3">                
-              <v-select 
-                :items="validacion" 
-                label="Vía Principal" 
-                v-model="form.via_principal" 
-                item-text="name" 
-                item-value="value"
-                color = #F2AA1F 
-              ></v-select>
-            </v-col>                
 
             <v-col cols="12" sm="6" md="3">
-              <v-text-field label="Longitud" 
-                v-model="form.longitud" type="number"
-                color = #F2AA1F
-                @input="formatDecimal('longitud')">
-              </v-text-field>
+              <v-text-field label="Clasificación" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="6" md="3">                
-            <v-select 
-              :items="validacion" 
-              label="Aceras y Bordillos" 
-              v-model="form.aceras" 
-              item-text="name" 
-              item-value="value"
-              color = #F2AA1F 
-            ></v-select>
-          </v-col>   
+            <v-col cols="12" sm="6" md="3">
+              <v-text-field label="Tipo de vivienda" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6" md="3">
+              <v-text-field label="Condición de ocupación" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
+            </v-col>
 
           </v-row>
         </v-card-text>
       </v-card>
 
+      <!-- Cuarto Bloque -->
+      <v-card class="mb-3 block-color">
+        <v-card-title class="centered-title">Datos Censales:</v-card-title>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Número de habitantes" 
+               color = #F2AA1F v-model="form.eje_principal"></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Propiedad o posesión de la vivienda" 
+               color = #F2AA1F v-model="form.eje_secundario"></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Número de habitantes" 
+               color = #F2AA1F v-model="form.sector"></v-text-field>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>      
+
       <v-row justify="center">
         <v-col cols="auto">
-          <v-btn class="custom-text-color" color=#114358 @click="submitForm">Guardar</v-btn>
+          <v-btn class="custom-text-color" color=#668A4C @click="submitForm">Guardar</v-btn>
         </v-col>
       </v-row>
 
@@ -154,7 +152,7 @@
   <style scoped>
 
 .container {
-  background-color: #276E90; /* Fondo */
+  background-color: #ACCC7B; /* Fondo */
   border: 0; /* Borde personalizado */
   padding: 0; /* Eliminar padding */
   margin: 0; /* Eliminar margen */
@@ -162,7 +160,7 @@
 
 .block-color {
   background-color: #F1ECE7;
-  color: #114358; 
+  color: #668A4C; 
 }
 
 .custom-text-color {
@@ -173,7 +171,7 @@
   height: 30px; /* Altura de la línea */ 
   align-self: center; 
   margin: 0 16px; /* Espaciado a los lados de la línea */ 
-  border-left: 2px solid #114358;
+  border-left: 2px solid #668A4C;
 }
 
 .centered-title { 

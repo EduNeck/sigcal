@@ -10,60 +10,58 @@
 
       <!-- Primer Bloque -->
       <v-card class="mb-3 block-color fill-width">
-        <v-card-title class="centered-title">VIAS</v-card-title>
+        <v-card-title class="centered-title">VIVIENDA</v-card-title>
         <v-card-text>
           <v-row>
 
             <v-col cols="12" sm="6" md="3">
-              <v-text-field label="Nombre Vía" 
+              <v-text-field label="Código de vivienda" 
                v-model="form.nombre_via" type="text"
                color = #F2AA1F></v-text-field>
-            </v-col>                   
-
-            <v-col cols="12" sm="6" md="3">                
-              <v-select 
-                :items="tipoVia" 
-                label="Tipo de via" 
-                v-model="form.id_tipo_via" 
-                item-text="name" 
-                item-value="value"
-                color = #F2AA1F 
-              ></v-select>
             </v-col>
-            
-            <v-col cols="12" sm="6" md="3">                
-              <v-select 
-                :items="validacion" 
-                label="Vía Principal" 
-                v-model="form.via_principal" 
-                item-text="name" 
-                item-value="value"
-                color = #F2AA1F 
-              ></v-select>
-            </v-col>                
 
             <v-col cols="12" sm="6" md="3">
-              <v-text-field label="Longitud" 
-                v-model="form.longitud" type="number"
-                color = #F2AA1F
-                @input="formatDecimal('longitud')">
-              </v-text-field>
+              <v-text-field label="Clasificación" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="6" md="3">                
-            <v-select 
-              :items="validacion" 
-              label="Aceras y Bordillos" 
-              v-model="form.aceras" 
-              item-text="name" 
-              item-value="value"
-              color = #F2AA1F 
-            ></v-select>
-          </v-col>   
+            <v-col cols="12" sm="6" md="3">
+              <v-text-field label="Tipo de vivienda" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6" md="3">
+              <v-text-field label="Condición de ocupación" 
+               v-model="form.nombre_via" type="text"
+               color = #F2AA1F></v-text-field>
+            </v-col>
 
           </v-row>
         </v-card-text>
       </v-card>
+
+      <!-- Cuarto Bloque -->
+      <v-card class="mb-3 block-color">
+        <v-card-title class="centered-title">Datos Censales:</v-card-title>
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Número de habitantes" 
+               color = #F2AA1F v-model="form.eje_principal"></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Propiedad o posesión de la vivienda" 
+               color = #F2AA1F v-model="form.eje_secundario"></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="6" md="4">
+              <v-text-field label="Número de habitantes" 
+               color = #F2AA1F v-model="form.sector"></v-text-field>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>      
 
       <v-row justify="center">
         <v-col cols="auto">

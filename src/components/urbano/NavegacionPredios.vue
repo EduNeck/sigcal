@@ -25,6 +25,7 @@
   import Obras from './FormObrasMejoras.vue';
   import Observaciones from './FormObservaciones.vue';
   import FotoFachada from './FormFotoFachada.vue';
+  import Vivienda from './FormVivienda.vue';
   
   export default {
     name: 'NavegacionPredios',
@@ -39,6 +40,7 @@
           { label: 'Construcción', component: Construccion },
           { label: 'Obras', component: Obras },
           { label: 'Observaciones', component: Observaciones },
+          { label: 'Vivienda', component: Vivienda },
           { label: 'Foto Fachada', component: FotoFachada },
         ]
       };

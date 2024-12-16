@@ -47,6 +47,12 @@
                 color = #F2AA1F></v-text-field>
             </v-col>
 
+            <v-col cols="12" sm="6" md="3">
+              <v-text-field label="Código Único Eléctronico Nacional" 
+                v-model="form.cuen"
+                color = #F2AA1F></v-text-field>
+            </v-col>
+
           </v-row>
         </v-card-text>
       </v-card>

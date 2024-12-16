@@ -58,10 +58,10 @@ export default {
 }
 
 .toolbar-title {
-  font-size: 30px;
+  font-size: 20px;
   color: #090909;
   line-height: 50px; /* Ajusta esto según la altura de la app-bar */
-  /*font-weight: bold;*/
+  font-weight: bold;
 }
 
 .logo {
