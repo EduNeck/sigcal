@@ -8,8 +8,24 @@
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Valorar</v-btn>
         <v-btn color=#114358 @click="navigateToMenuUrbano" class="mx-2 custom-text-color">Salir</v-btn>
       </v-col>
-    </v-row>      
+    </v-row>          
     <!-- Primer Bloque -->
+    <v-card class="mb-3 block-color-imagen fill-width" > 
+      <v-card-title class="centered-title"></v-card-title> 
+      <v-card-text> 
+        <v-row align="center" justify="center">           
+
+          <v-card> <v-card-title class="image-title">FOTO DEL PREDIO</v-card-title> 
+            <v-img :src="require('@/assets/foto-predio.png')" class="my-image fill-height" max-width="300%" max-height="400px"></v-img>
+          </v-card>          
+          <v-card> <v-card-title class="image-title">MAPA DEL PREDIO</v-card-title> 
+            <v-img :src="require('@/assets/croquis-predio.png')" class="my-image fill-height" max-width="300%" max-height="400px"></v-img>
+          </v-card>         
+
+          </v-row> 
+        </v-card-text> 
+      </v-card>
+
     <v-card class="mb-3 block-color fill-width">
       <v-card-title class="centered-title">IDENTIFICACIÓN</v-card-title>
       <v-card-text>
@@ -291,6 +307,11 @@ export default {
   color: #114358; 
 }
 
+.block-color-imagen {
+  background-color: #114358;
+  color: #114358; 
+}
+
 .custom-text-color {
   color: #F1ECE7; 
 }
@@ -311,7 +332,23 @@ export default {
 }
 
 .fill-width { 
-  width: 100%; /* Asegura que el v-card ocupe todo el ancho del contenedor */
+  width: 100%; 
+}
+
+.my-image { 
+  max-width: 100%; 
+  border: 1px solid #F2AA1F; 
+  border-radius: 2px; 
+} 
+
+.image-title { 
+  text-align: center; 
+  font-size: 16px; 
+  margin-bottom: 2px;
+  color: #F1ECE7;
+  justify-content: center; 
+  background-color: #276E90;
+  display: flex;
 }
 
 </style>
