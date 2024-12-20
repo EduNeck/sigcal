@@ -115,6 +115,10 @@
             <v-list-item v-bind="attrs" v-on="on" @click="navigateToMenu('urbano')">
               <v-list-item-title>Gestión Ciudadano</v-list-item-title>
             </v-list-item>
+            
+            <v-list-item @click="$router.push('/listado-ciudadano')">
+              <v-list-item-title>Listado Ciudadano</v-list-item-title>
+            </v-list-item>          
           </v-list>
         </v-menu>
       </v-col>

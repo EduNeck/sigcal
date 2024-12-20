@@ -11,12 +11,14 @@
     "axios": "^1.7.9",
     "core-js": "^3.8.3",
     "dotenv": "^16.4.7",
+    "json2csv": "^6.0.0-alpha.2",
     "leaflet": "^1.9.4",
     "pg": "^8.13.1",
     "vue": "^2.6.14",
     "vue-router": "^3.6.5",
     "vue2-leaflet": "^2.7.1",
-    "vuetify": "^2.6.0"
+    "vuetify": "^2.6.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

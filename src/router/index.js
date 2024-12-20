@@ -40,6 +40,7 @@ import GridFrentesRegistrados from '@/components/urbano/reportes/GridFrentesRegi
 import GridMejorasRegistradas from '@/components/urbano/reportes/GridMejorasRegistradas.vue';
 import GridViviendasRegistradas from '@/components/urbano/reportes/GridViviendasRegistradas.vue';
 import GridContribuyentesRegistrados from '@/components/urbano/reportes/GridContribuyentesRegistrados.vue';
+import GridCiudadanos from '@/components/parametrizacion/GridCiudadanos.vue';
 
 
 Vue.use(Router);
@@ -246,6 +247,13 @@ const routes = [
     name: 'IngresoCiudadano',
     component: FormIngresoCiudadano, 
   },
+
+  {
+    path: '/listado-ciudadano',
+    name: 'ListadoCiudadano',
+    component: GridCiudadanos, 
+  },
+
 
   /* Reportes Urbanos */
   {

@@ -54,6 +54,17 @@ app.get('/api/catalogo', async (req, res) => {
   }
 });
 
+// Ruta para actualizar un registro por ID
+app.put('/api/catastro_ciudadano/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const data = await catastroCiudadanoModel.updateCatastroCiudadano(id, req.body);
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
