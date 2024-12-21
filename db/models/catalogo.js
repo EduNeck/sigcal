@@ -19,6 +19,22 @@ const getCatalogoByTipoAtributo = async (id_tipo_atributo) => {
   }
 };
 
+const getDescripcionById = async (id) =>{
+  const query = `
+    SELECT descripcion
+    FROM public.catastro_catalogo
+    WHERE id = $1
+  `;
+  try {
+    const result = await db.query(query, [id]);
+    return result.rows[0];
+  } catch (err) {
+    console.error('Error executing query', err.stack);
+    throw err;
+  }
+};
+
 module.exports = {
   getCatalogoByTipoAtributo,
+  getDescripcionById,
 };

@@ -32,24 +32,25 @@
         <v-row>
           <v-col cols="12" sm="6" md="2">
             <v-select 
-              :items="tipoPredios" 
-              label="Tipo de Predio" 
+              label="Tipo Predio" 
               v-model="form.id_tipo_predio" 
-              item-text="name" 
-              item-value="value" 
-              color = #F2AA1F
-            ></v-select>
+              :items="tipoPredios" 
+              item-text="descripcion" 
+              item-value="id" 
+              required color="#F2AA1F" >
+            </v-select>
           </v-col>
 
           <v-col cols="12" sm="6" md="2">                
             <v-select 
-              :items="regimenPropiedad" 
-              label="Régimen de Propiedad" 
+              label="Regimen de Propiedad" 
               v-model="form.id_regimen_propiedad" 
-              item-text="name" 
-              item-value="value"
-              color = #F2AA1F
-              @change="handleRegimenChange"
+              :items="regimens" 
+              item-text="descripcion" 
+              item-value="id" 
+              required 
+              color="#F2AA1F" 
+              @change="handleRegimenChange">
             ></v-select>
           </v-col>
 
@@ -61,7 +62,7 @@
 
           <v-col cols="12" sm="6" md="4">
             <v-text-field label="Clave Catastral" color = #F2AA1F
-              v-model="form.clave_catastral">
+              v-model="form.clave_catastral" disabled>
             </v-text-field>
           </v-col>
         </v-row>
@@ -89,30 +90,30 @@
           </v-col>
           <v-col cols="12" sm="6" md="1">
             <v-text-field label="Pol/Manzana" color = #F2AA1F v-model="form.cod_pol_man"></v-text-field>
-          </v-col>
+          </v-col>          
+          <v-col cols="12" sm="6" md="1" >
+            <v-text-field label="Predio" color="#F2AA1F" v-model="form.cod_pred"></v-text-field> 
+          </v-col> 
           <!-- Línea Vertical --> 
           <v-divider class="vertical-divider" vertical></v-divider>
           <!-- Campos a ocultar/mostrar --> 
-          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 3"> 
-            <v-text-field label="Predio" color="#F2AA1F" v-model="form.cod_pred"></v-text-field> 
-          </v-col> 
-          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 3"> 
+          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 4"> 
             <v-text-field label="Unidad" color="#F2AA1F" v-model="form.cod_uni"></v-text-field> 
           </v-col> 
-          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 3"> 
+          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 4"> 
             <v-text-field label="Bloque" color="#F2AA1F" v-model="form.cod_bloq"></v-text-field> 
           </v-col> 
-          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 3"> 
+          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 4"> 
             <v-select :items="tipoPiso" label="Tipo de Piso" v-model="form.id_tipo_piso" item-text="name" item-value="value" color="#F2AA1F" ></v-select> 
           </v-col> 
-          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 3"> 
+          <v-col cols="12" sm="6" md="1" v-if="form.id_regimen_propiedad === 4"> 
             <v-text-field label="Piso" color="#F2AA1F" v-model="form.cod_piso"></v-text-field> 
           </v-col>
       </v-row> 
       </v-card-text> 
     </v-card>
     <!-- Tercer Bloque -->
-    <v-card class="mb-3 block-color fill-width" v-if="form.id_regimen_propiedad === 3">
+    <v-card class="mb-3 block-color fill-width" v-if="form.id_regimen_propiedad === 4">
       <v-card-title class="centered-title">ÁREAS</v-card-title>
       <v-card-text>
         <v-row>
@@ -205,6 +206,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'FormIdentificacion',
   data() {
@@ -235,64 +238,82 @@ export default {
         eje_secundario: '',
         sector: ''
       },
-      // Listados
-      tipoPredios: [ 
-        { name: 'Urbano', value: 1 }, 
-        { name: 'Rural', value: 2 } 
-      ],
-      regimenPropiedad: [ 
-        { name: 'Unipropiedad', value: 1 }, 
-        { name: 'Coopropietarios', value: 2 },
-        { name: 'Propiedad Horizontal', value: 3 }  
-      ],
-      tipoPiso: [ 
-        { name: 'Piso', value: 1 }, 
-        { name: 'Subsuelo', value: 2 }        
-      ],
-      unidadArea: [ 
-        { name: 'Metros', value: 1 }, 
-        { name: 'Hectareas', value: 2 }        
-      ]      
-    }
+      tipoPredios: [],
+      regimens: [],
+      tipoPisos: []
+    };
   },
   methods: {
+    async fetchCatalogo(id_tipo_atributo) {
+      try {
+        const response = await axios.get('http://localhost:3001/api/catalogo', {
+          params: { id_tipo_atributo }
+        });
+        console.log(`Datos obtenidos para id_tipo_atributo ${id_tipo_atributo}:`, response.data);
+        return response.data;
+      } catch (error) {
+        console.error('Error fetching catalogo:', error);
+        throw new Error('No se pudo obtener el catálogo');
+      }
+    },
+    async mounted() {
+      try {
+        console.log('Componente montado');
+        this.tipoPredios = await this.fetchCatalogo(1); // Obtén los datos para tipo predios con id_tipo_atributo 1
+        console.log('Datos del catálogo cargados:', this.tipoPredios);
+      } catch (error) {
+        console.error('Error al montar el componente:', error);
+      }
+    },
     submitForm() {
       console.log(this.form);
       // Lógica para enviar el formulario
     },
-    navigateToMenuUrbano() { 
-      this.$router.push('/menu-urbano'); 
+    navigateToMenuUrbano() {
+      this.$router.push('/menu-urbano');
     },
     handleRegimenChange() {
-      if(this.form.id_regimen_propiedad !== 3){
+      if (this.form.id_regimen_propiedad !== 4) {
         this.limpiarCampos();
-
       }
     },
-    limpiarCampos(){ 
+    limpiarCampos() {
       // Limpiar los campos
-      this.form.alicuota = ''; 
-      this.form.area_terreno = ''; 
-      this.form.area_comun_terreno = ''; 
-      this.form.id_unidad_area = ''; 
-      this.form.area_individual_construida = ''; 
-      this.form.area_comun_construida = ''; 
-      
-      this.form.cod_pred = ''; 
-      this.form.cod_uni = ''; 
-      this.form.cod_bloq = ''; 
-      this.form.id_tipo_piso = ''; 
+      this.form.alicuota = '';
+      this.form.area_terreno = '';
+      this.form.area_comun_terreno = '';
+      this.form.id_unidad_area = '';
+      this.form.area_individual_construida = '';
+      this.form.area_comun_construida = '';
+      this.form.cod_pred = '';
+      this.form.cod_uni = '';
+      this.form.cod_bloq = '';
+      this.form.id_tipo_piso = '';
       this.form.cod_piso = '';
+      this.form.eje_principal = '';
+      this.form.eje_secundario = '';
+      this.form.sector = '';
     },
-    formatoDecimal(field){
-      if(this.form[field] !== ''){
+    formatoDecimal(field) {
+      if (this.form[field] !== '') {
         this.form[field] = parseFloat(this.form[field]).toFixed(2);
       }
     }
-
+  },
+  async mounted() {
+    try {
+      console.log('Componente montado');
+      this.tipoPredios = await this.fetchCatalogo(1); // Obtén los datos para el tipo de persona
+      this.regimens = await this.fetchCatalogo(2); // Obtén los datos para el tipo de persona
+      this.tipoPisos = await this.fetchCatalogo(3); // Obtén los datos para el tipo de persona
+      console.log('Datos del catálogo cargados:', this.tipoPredios, this.regimens, this.tipoPisos);
+    } catch (error) {
+      console.error('Error al montar el componente:', error);
+    }
   }
-}
+};
 </script>
+
 
 <style scoped>
 .container {

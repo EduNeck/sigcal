@@ -20,6 +20,12 @@
               <v-btn color="secondary" class="mx-2 custom-text-color" @click="navigateBack">Regresar</v-btn>
             </v-toolbar>
           </template>
+          
+          <template 
+            v-slot:[`item.id_tipo_persona`]="{ item }"> 
+            {{ getDescripcion(item.id_tipo_persona, 'tipoPersona') }} 
+          </template>
+
           <template slot="item.actions" slot-scope="{ item }">
             <router-link :to="{ path: '/ingreso-ciudadano', query: { id: item.id_ciudadano } }">
               <v-btn color="primary">Editar</v-btn>
@@ -59,13 +65,36 @@ export default {
         { text: 'Correo', value: 'correo' },
         { text: 'Dirección', value: 'direccion' }
       ],
-      ciudadanos: []
+      ciudadanos: [],
+      tipoPersona: [],
     };
   },
+
   created() {
     this.fetchCiudadanos();
+    this.fetchCatalogos();
   },
+
   methods: {
+
+    async fetchCatalogos() { 
+      try { 
+        const tipoPersonaResponse = await axios.get('http://localhost:3001/api/catalogo?tipo=tipo_persona'); 
+        
+        this.tipoPersona = this.mapCatalogo(tipoPersonaResponse.data);         
+        } catch (error) { 
+          console.error('Error fetching catalogos:', error); 
+        } 
+      },
+
+      mapCatalogo(data) { 
+        const map = {}; 
+        data.forEach(item => { 
+          map[item.id] = item.descripcion; 
+        }); 
+        return map; 
+      },
+
     async fetchCiudadanos() {
       try {
         const response = await axios.get('http://localhost:3001/api/catastro_ciudadano');
@@ -74,20 +103,28 @@ export default {
         console.error('Error fetching ciudadanos:', error);
       }
     },
+
+    getDescripcion(id, catalogo) { 
+      return this[catalogo][id] || id; 
+    },
+
+    // Formato de fecha
     formatFecha(fecha) {
       if (!fecha) return '';
       const [year, month, day] = fecha.split('-');
       return `${day}-${month}-${year}`;
     },
+
+    // Lógica para editar el ciudadano
     editCiudadano(ciudadano) {
-      // Lógica para editar el ciudadano
       console.log('Editar ciudadano:', ciudadano);
     },
-    navigateBack() { // Navega a la pantalla anterior
+
+    // Navega a la pantalla anterior
+    navigateBack() { 
       console.log('Regresando a la página anterior');
       this.$router.go(-1); 
-    },
-
+    }
   }
 };
 </script>
@@ -102,12 +139,4 @@ export default {
   color: #114358; 
 }
 
-/* Estilo para las filas del v-data-table */
-.v-data-table tr:nth-child(odd) {
-  background-color: #F1ECE7; /* Color para las filas nones */
-}
-
-.v-data-table tr:nth-child(even) {
-  background-color: #e7f1f1; /* Color para las filas pares */
-}
 </style>

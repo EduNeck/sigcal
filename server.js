@@ -65,6 +65,26 @@ app.put('/api/catastro_ciudadano/:id', async (req, res) => {
   }
 });
 
+// Ruta para obtener la descripción del catálogo por ID
+app.get('/api/catalogo/:id', async (req, res) => {
+  const id = parseInt(req.params.id, 10); 
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'El ID debe ser un número válido' });
+  }
+
+  try {
+    const descripcion = await catalogoModel.getDescripcionById(id);
+    if (descripcion) {
+      res.json(descripcion);
+    } else {
+      res.status(404).json({ error: 'Descripción no encontrada' });
+    }
+  } catch (error) {
+    console.error('Error fetching descripcion:', error);
+    res.status(500).json({ error: 'Error al obtener la descripción' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

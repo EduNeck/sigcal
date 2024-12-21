@@ -160,6 +160,8 @@ export default {
       snackbarMessage: ''
     };
   },
+  
+  // Crea el componente
   created() {
     const idCiudadano = this.$route.query.id;
     if (idCiudadano) {
@@ -168,7 +170,8 @@ export default {
     }
   },
   methods: {
-    async fetchCatalogo(id_tipo_atributo) { // Obtiene Catalogo
+    // Obtiene Catalogo
+    async fetchCatalogo(id_tipo_atributo) { 
       try {
         const response = await axios.get('http://localhost:3001/api/catalogo', {
           params: { id_tipo_atributo }
@@ -181,7 +184,8 @@ export default {
       }
     },
 
-    async guardar() { // Guardar datos del formulario
+    // Guardar datos del formulario
+    async guardar() { 
       console.log('Método guardar() llamado');
       const nuevoCiudadano = {
         id_tipo_persona: this.id_tipo_persona,
@@ -204,7 +208,7 @@ export default {
         console.log('Respuesta del servidor:', response.data);
         this.snackbarMessage = 'Datos guardados exitosamente!';
         this.snackbar = true;
-        this.limpiarFormulario(); // Limpiar el formulario después de guardar
+        this.limpiarFormulario();
         console.log('Formulario limpiado');
       } catch (error) {
         console.error('Error al guardar los datos:', error);
@@ -213,7 +217,8 @@ export default {
       }
     },
 
-    async actualizar() { // Actualiza Ciudadano
+    // Actualiza Ciudadano
+    async actualizar() { 
       console.log('Método actualizar() llamado');
       const ciudadano = {
         id_tipo_persona: this.id_tipo_persona,
@@ -236,7 +241,7 @@ export default {
         console.log('Respuesta del servidor:', response.data);
         this.snackbarMessage = 'Datos actualizados exitosamente!';
         this.snackbar = true;
-        this.limpiarFormulario(); // Limpiar el formulario después de actualizar
+        //this.limpiarFormulario(); 
         // console.log('Formulario limpiado');
       } catch (error) {
         console.error('Error al actualizar los datos:', error);
@@ -245,13 +250,15 @@ export default {
       }
     },
 
-    async nuevo() { // Ingresa nuevo ciudadano
+    // Ingresa nuevo ciudadano
+    async nuevo() {
       console.log('Método nuevo() llamado');
       this.limpiarFormulario();
     },
 
+    // Recupera Datos Ciudadano
     async fetchCiudadano(id) {
-      try { // Recupera Datos Ciudadano
+      try { 
         const response = await axios.get(`http://localhost:3001/api/catastro_ciudadano/${id}`);
         const ciudadano = response.data;
         this.id_tipo_persona = ciudadano.id_tipo_persona;
@@ -270,7 +277,8 @@ export default {
       }
     },
 
-    limpiarFormulario() { // Limpia formulario
+    // Limpia formulario
+    limpiarFormulario() { 
       console.log('Método limpiarFormulario() llamado');
       this.id_ciudadano = null;
       this.id_tipo_persona = '';
@@ -284,16 +292,18 @@ export default {
       this.telefono = '';
       this.email = '';
       this.direccion = '';
-      this.$refs.form.reset(); // Restablecer el formulario de Vuetify
+      this.$refs.form.reset();
       console.log('Formulario reseteado');
     },
 
-    navigateBack() { // Navega a la pantalla anterior
+    // Navega a la pantalla anterior
+    navigateBack() { 
       console.log('Regresando a la página anterior');
       this.$router.go(-1); 
     },
 
-    navigateToMenu() { // Navega al menu 
+    // Navega al menu de ingreso
+    navigateToMenu() { 
       const tipo = this.$route.query.tipo; 
       console.log('Navegando a menú de tipo:', tipo);
       if (tipo === 'urbano') {
@@ -306,7 +316,8 @@ export default {
     },
   },
 
-  async mounted() { // Genera los catalogos para las listas
+  // Genera los catalogos para las listas desplegables
+  async mounted() { 
     try {
       console.log('Componente montado');
       this.tipoPersonas = await this.fetchCatalogo(5); // Obtén los datos para el tipo de persona
