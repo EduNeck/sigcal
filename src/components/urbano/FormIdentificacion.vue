@@ -391,11 +391,13 @@ export default {
 
       try {
         const response = await axios.post('http://localhost:3001/api/catastro_predio', nuevoPredio);
-        console.log('Respuesta del servidor:', response.data);
+        const newRecordId = response.data.id;
+        console.log('ID del nuevo registro:', newRecordId);
         alert('Predio guardado exitosamente');
+        // Aquí puedes usar newRecordId como clave foránea para los siguientes recursos
       } catch (error) {
         console.error('Error al guardar el predio:', error);
-        alert('Error al guardar el predio');
+        alert(`Error al guardar el predio: ${error.response.data.detail}`);
       }
     },
 

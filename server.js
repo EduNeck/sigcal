@@ -101,10 +101,11 @@ app.get('/api/catastro_parroquia', async (req, res) => {
 // Ruta para obtener todos los registros de la tabla `catastro_predio`
 app.post('/api/catastro_predio', async (req, res) => {
   try {
-    const newRecord = await catastoPredioModel.insertCatastroPredio(req.body);
-    res.status(201).json(newRecord);
+    const newRecordId = await catastoPredioModel.insertCatastroPredio(req.body);
+    res.status(201).json({ id: newRecordId });
   } catch (err) {
-    res.status(500).send('Server Error');
+    console.error('Error inserting catastro_predio:', err);
+    res.status(500).json({ error: err.message, detail: err.detail });
   }
 });
 
