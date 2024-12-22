@@ -208,8 +208,8 @@ export default {
         console.log('Respuesta del servidor:', response.data);
         this.snackbarMessage = 'Datos guardados exitosamente!';
         this.snackbar = true;
-        this.limpiarFormulario();
-        console.log('Formulario limpiado');
+        
+        
       } catch (error) {
         console.error('Error al guardar los datos:', error);
         this.snackbarMessage = 'Error al guardar los datos. Inténtalo de nuevo.';

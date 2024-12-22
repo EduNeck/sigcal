@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const catastroCiudadanoModel = require('./db/models/catastroCiudadano');
 const catalogoModel = require('./db/models/catalogo');
+const catastroParroquiaModel = require('./db/models/catastroParroquia');
+const catastoPredioModel = require('./db/models/catastroPredio');
 
 dotenv.config();
 
@@ -84,6 +86,29 @@ app.get('/api/catalogo/:id', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener la descripción' });
   }
 });
+
+// Ruta para obtener todos los registros de la tabla `catastro_parroquia`
+app.get('/api/catastro_parroquia', async (req, res) => {
+  try {
+    const data = await catastroParroquiaModel.getAllCatastroParroquia();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+
+// Ruta para obtener todos los registros de la tabla `catastro_predio`
+app.post('/api/catastro_predio', async (req, res) => {
+  try {
+    const newRecord = await catastoPredioModel.insertCatastroPredio(req.body);
+    res.status(201).json(newRecord);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
