@@ -241,8 +241,6 @@ export default {
         console.log('Respuesta del servidor:', response.data);
         this.snackbarMessage = 'Datos actualizados exitosamente!';
         this.snackbar = true;
-        //this.limpiarFormulario(); 
-        // console.log('Formulario limpiado');
       } catch (error) {
         console.error('Error al actualizar los datos:', error);
         this.snackbarMessage = 'Error al actualizar los datos. Inténtalo de nuevo.';

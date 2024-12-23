@@ -9,7 +9,7 @@
     <v-tabs-items v-model="activeTab">
       <v-tab-item v-for="(tab, index) in tabs" :key="index">
         <v-container>
-          <component :is="tab.component"></component>
+          <component :is="tab.component" :id_predio="id_predio"></component>
         </v-container>
       </v-tab-item>
     </v-tabs-items>
@@ -29,9 +29,23 @@
   
   export default {
     name: 'NavegacionPredios',
+    components: {
+      Identificacion,
+      Legal,
+      Caracteristicas,
+      Vias,
+      Construccion,
+      Obras,
+      Observaciones,
+      FotoFachada,
+      Vivienda
+    },
+
     data() {
       return {
         activeTab: 0,
+        id_predio: this.$route.query.id_predio || null,
+
         tabs: [
           { label: 'Identificacion', component: Identificacion },
           { label: 'Legal', component: Legal },

@@ -31,12 +31,15 @@
               <v-btn color="primary">Editar</v-btn>
             </router-link>
           </template>
+
           <template slot="item.fecha_nacimiento" slot-scope="{ item }">
             {{ formatFecha(item.fecha_nacimiento) }}
           </template>
+          
           <template slot="item.id_ciudadano" slot-scope="{ item }">
             <v-btn text @click="editCiudadano(item)">{{ item.id_ciudadano }}</v-btn>
           </template>
+          
         </v-data-table>
       </v-card-text>
     </v-card>
@@ -77,6 +80,7 @@ export default {
 
   methods: {
 
+    // Obtiene los catálogos
     async fetchCatalogos() { 
       try { 
         const tipoPersonaResponse = await axios.get('http://localhost:3001/api/catalogo?tipo=tipo_persona'); 
@@ -87,6 +91,7 @@ export default {
         } 
       },
 
+      // Mapea un catálogo
       mapCatalogo(data) { 
         const map = {}; 
         data.forEach(item => { 
@@ -95,6 +100,7 @@ export default {
         return map; 
       },
 
+    // Obtiene los ciudadanos  
     async fetchCiudadanos() {
       try {
         const response = await axios.get('http://localhost:3001/api/catastro_ciudadano');
@@ -104,6 +110,7 @@ export default {
       }
     },
 
+    // Obtiene la descripción de un id en un catálogo
     getDescripcion(id, catalogo) { 
       return this[catalogo][id] || id; 
     },

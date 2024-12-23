@@ -41,6 +41,7 @@ import GridMejorasRegistradas from '@/components/urbano/reportes/GridMejorasRegi
 import GridViviendasRegistradas from '@/components/urbano/reportes/GridViviendasRegistradas.vue';
 import GridContribuyentesRegistrados from '@/components/urbano/reportes/GridContribuyentesRegistrados.vue';
 import GridCiudadanos from '@/components/parametrizacion/GridCiudadanos.vue';
+import FormIdentificacion from '@/components/urbano/FormIdentificacion.vue';
 
 
 Vue.use(Router);
@@ -84,6 +85,12 @@ const routes = [
   },
 
   /* Urbano Catastro */
+  {
+    path: '/form-identificacion',
+    name: 'FormIdentificacion',
+    component: FormIdentificacion, 
+  },
+
   {
     path: '/form-tenencia',
     name: 'FormTenencias',

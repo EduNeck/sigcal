@@ -3,7 +3,8 @@
     <v-row justify="center" class="mb-1">
       <v-col cols="auto" class="d-flex justify-center"> 
         <v-btn color=#114358 class="mx-2 custom-text-color">Nuevo</v-btn>
-        <v-btn color=#114358 @click="guardar" class="mx-2 custom-text-color">Guardar</v-btn>
+        <v-btn color=#114358 @click="guardar" :disabled="isUpdateMode" class="mx-2 custom-text-color">Guardar</v-btn>
+        <v-btn color=#114358 @click="actualizar" :disabled="!isUpdateMode" class="mx-2 custom-text-color">Actualizar</v-btn>
         <v-btn color=#114358 class="mx-2 custom-text-color">Imprimir Ficha</v-btn>
         <v-btn color=#114358 class="mx-2 custom-text-color">Documentos</v-btn>
         <v-btn color=#114358 class="mx-2 custom-text-color">Valorar</v-btn>
@@ -128,7 +129,6 @@
       </v-row> 
       </v-card-text> 
     </v-card>
-
     
     <v-card class="mb-3 block-color fill-width" v-if="form.id_regimen_propiedad === 4">
       <v-card-title class="centered-title">PROPIEDAD HORIZONTAL</v-card-title>
@@ -249,11 +249,11 @@
             <v-text-field label="Sector" color = #F2AA1F v-model="form.sector"></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
-            <v-text-field label="Área Gráfica" 
-             color = #F2AA1F 
-             v-model="form.area_grafica" 
-             type="number"
-             @input="formatDecimal('area_grafica')">
+            <v-text-field
+              label="Área Gráfica" 
+              v-model="form.area_grafica" 
+              readonly
+             >
             </v-text-field>
           </v-col>          
         </v-row>
@@ -275,11 +275,11 @@ import axios from 'axios';
 export default {
   // Nombre del componente
   name: 'FormIdentificacion',
-  //  Datos del componente
-  data() {
-    // Datos del formulario
+
+  data() {    
     return {      
       form: {
+        id_predio: null, 
         id_tipo_predio: '',
         id_regimen_propiedad: '',
         clave_catastral_anterior: '',
@@ -312,8 +312,49 @@ export default {
       tipoPisos: [],
       unidadAreas: [],
       parroquias: [],
-     };
+      idPredio: null,
+     };     
   },
+
+  // Crea el componente Id del predio
+  created() {
+    const idPredio = this.$route.query.id_predio;
+    console.log('ID del predio recibido:', idPredio);
+    if (idPredio) {
+      this.id_predio = idPredio;
+      this.fetchPredio(idPredio);
+    }
+  },
+
+  async mounted() {
+    // Cargar catálogos
+    try {
+      console.log('Componente montado');
+      this.tipoPredios = await this.fetchCatalogo(1); // Obtén los datos para el tipo de persona
+      this.regimens = await this.fetchCatalogo(2); // Obtén los datos para el tipo de persona
+      this.tipoPisos = await this.fetchCatalogo(3); // Obtén los datos para el tipo de persona
+      this.unidadAreas = await this.fetchCatalogo(8); // Obtén los datos para el tipo de area
+      this.parroquias = await this.fetchParroquia(); // Obtén los datos para el tipo de persona
+      console.log('Datos del catálogo cargados:', this.tipoPredios, this.regimens, this.tipoPisos);
+      console.log('Datos de parroquias cargados:', this.parroquias);
+    } catch (error) {
+      console.error('Error al montar el componente:', error);
+    }    
+  }, 
+  
+  // Cancatenar descripción de parroquia
+  computed: {
+    formattedParroquias() {
+      return this.parroquias.map(parroquia => ({
+        ...parroquia,
+        descripcion: `${parroquia.dpa} - ${parroquia.descripcion}`
+      }));
+    },
+    isUpdateMode() {
+      return this.idPredio !== null;
+    }
+  },
+
   // Métodos del componente
   methods: {
     // Obtener parroquia
@@ -340,10 +381,28 @@ export default {
       }
     },
 
+    // Obtener área del predio
+    async fetchAreaPredio() {
+      const claveCatastral = this.form.clave_catastral;
+      if (!claveCatastral) {
+        console.log('Clave catastral no definida');
+        return;
+      }
+      try {
+        console.log('Realizando solicitud para obtener el área del predio con clave catastral:', claveCatastral);
+        const response = await axios.get(`http://localhost:3001/api/geo_consultas/area_predio/${claveCatastral}`);
+        const areaPredio = response.data;
+        console.log('Área del predio recuperada:', areaPredio);
+        this.form.area_grafica = areaPredio.area; // Asigna el área recuperada al campo "area_grafica"
+        console.log('Área gráfica asignada:', this.form.area_grafica);
+      } catch (error) {
+        console.error('Error fetching area del predio:', error);
+      }
+    },
+
     // Guardar formulario
     async guardar() {
-      console.log('Guardando formulario:');
-      
+      console.log('Guardando formulario:');            
       const nuevoPredio = { 
         id_tipo_predio: this.form.id_tipo_predio, 
         id_regimen_propiedad: this.form.id_regimen_propiedad, 
@@ -391,8 +450,8 @@ export default {
 
       try {
         const response = await axios.post('http://localhost:3001/api/catastro_predio', nuevoPredio);
-        const newRecordId = response.data.id;
-        console.log('ID del nuevo registro:', newRecordId);
+        const idPredio = response.data.id;
+        console.log('ID del nuevo registro:', idPredio);
         alert('Predio guardado exitosamente');
         // Aquí puedes usar newRecordId como clave foránea para los siguientes recursos
       } catch (error) {
@@ -401,19 +460,44 @@ export default {
       }
     },
 
-    // Navegar a la página de menú urbano
-    navigateToMenuUrbano() {
-      this.$router.push('/menu-urbano');
-    },
-    // Valida si el régimen de propiedad es propiedad horizontal
-    handleRegimenChange() {
-      if (this.form.id_regimen_propiedad !== 4) {
-        this.limpiarCampos();
+    // Actualizar formulario
+    async actualizar() {
+      console.log('Actualizando identificación');
+      const identificacion = {
+        id_tipo_predio: this.form.id_tipo_predio,
+        id_regimen_propiedad: this.form.id_regimen_propiedad,
+        clave_catastral_anterior: this.form.clave_catastral_anterior,
+        clave_catastral: this.form.clave_catastral,
+        id_prov: this.form.id_prov,
+        id_can: this.form.id_can,
+        id_par: this.form.id_par,
+        cod_zon: this.form.cod_zon,
+        cod_sec: this.form.cod_sec,
+        cod_pol_man: this.form.cod_pol_man,
+        cod_pred: this.form.cod_pred,
+        eje_principal: this.form.eje_principal,
+        eje_secundario: this.form.eje_secundario,
+        sector: this.form.sector
+      };
+    
+      console.log('Datos a actualizar:', identificacion);
+
+      try {
+        const response = await axios.put(`http://localhost:3001/api/catastro_predio/${this.id_predio}`, identificacion);
+        console.log('Identificación actualizada:', response.data);
+        this.snackbarMessage = 'Datos actualizada exitosamente';
+        this.snackbar = true;
+      } catch (error) {
+        console.error('Error al actualizar la identificación:', error);
+        this.snackbarMessage = 'Error al actualizar la identificación';
+        this.snackbar = true;
       }
     },
 
     // Limpiar Campos
     limpiarCampos() {
+      console.log('Limpiando campos');
+      this.id_predio = null;
       this.form.alicuota = '';
       this.form.area_terreno = '';
       this.form.area_comun_terreno = '';
@@ -438,73 +522,89 @@ export default {
       }
     },
 
+    async fetchPredio(idPredio) {
+      try {
+        const response = await axios.get(`http://localhost:3001/api/catastro_predio/${idPredio}`);
+        const predio = response.data;
+        console.log('Datos del predio:', predio);
+        this.form = {
+          id_tipo_predio: predio.id_tipo_predio,
+          id_regimen_propiedad: predio.id_regimen_propiedad,
+          clave_catastral_anterior: predio.clave_catastral_anterior,
+          clave_catastral: predio.clave_catastral,
+          id_prov: predio.id_prov,
+          id_can: predio.id_can,
+          id_par: predio.id_par,
+          cod_zon: predio.cod_zon,
+          cod_sec: predio.cod_sec,
+          cod_pol_man: predio.cod_pol_man,
+          cod_pred: predio.cod_pred,
+          cod_uni: predio.cod_uni,
+          cod_bloq: predio.cod_bloq,
+          id_tipo_piso: predio.id_tipo_piso,
+          cod_piso: predio.cod_piso,
+          alicuota: predio.alicuota,
+          area_terreno: predio.area_terreno,
+          area_comun_terreno: predio.area_comun_terreno,
+          id_unidad_area: predio.id_unidad_area,
+          area_individual_construida: predio.area_individual_construida,
+          area_comun_construida: predio.area_comun_construida,
+          eje_principal: predio.eje_principal,
+          eje_secundario: predio.eje_secundario,
+          sector: predio.sector,
+          area_grafica: predio.area_grafica,
+        };
+        this.idPredio = idPredio;
+        await this.fetchAreaPredio(predio.area_grafica);
+      } catch (error) {
+        console.error('Error fetching predio:', error);
+      }
+    },
+
     // Actualizar clave catastral
     updateClaveCatastral() {
-    const { id_par, cod_zon, cod_sec, cod_pol_man, cod_pred, id_regimen_propiedad, cod_uni, cod_bloq, id_tipo_piso, cod_piso } = this.form;
+      const { id_par, cod_zon, cod_sec, cod_pol_man, cod_pred, 
+        id_regimen_propiedad, cod_uni, cod_bloq, id_tipo_piso, cod_piso } = this.form;
 
-    // Asegurarse de que los campos manzana y predio sean de 3 dígitos
-    const formattedCodPolMan = cod_pol_man ? cod_pol_man.padStart(3, '0') : '';
-    const formattedCodPred = cod_pred ? cod_pred.padStart(3, '0') : '';
+      // Asegurarse de que los campos manzana y predio sean de 3 dígitos
+      const formattedCodPolMan = cod_pol_man ? cod_pol_man.padStart(3, '0') : '';
+      const formattedCodPred = cod_pred ? cod_pred.padStart(3, '0') : '';
 
-    if (id_regimen_propiedad !== 4) {
-      // Si el régimen de propiedad no es PROPIEDAD HORIZONTAL - PH (código 4)
-      this.form.clave_catastral = `${id_par}${cod_zon}${cod_sec}${formattedCodPolMan}${formattedCodPred}000000P00`;
-    } else {
-      // Si el régimen de propiedad es PROPIEDAD HORIZONTAL - PH (código 4)
-      const formattedCodUni = cod_uni ? cod_uni.padStart(3, '0') : '';
-      const formattedCodBloq = cod_bloq ? cod_bloq.padStart(3, '0') : '';
-      let formattedCodPiso = cod_piso ? cod_piso.padStart(2, '0') : '';
+      if (id_regimen_propiedad !== 4) {
+        // Si el régimen de propiedad no es PROPIEDAD HORIZONTAL - PH (código 4)
+        this.form.clave_catastral = `${id_par}${cod_zon}${cod_sec}${formattedCodPolMan}${formattedCodPred}000000P00`;
+      } else {
+        // Si el régimen de propiedad es PROPIEDAD HORIZONTAL - PH (código 4)
+        const formattedCodUni = cod_uni ? cod_uni.padStart(3, '0') : '';
+        const formattedCodBloq = cod_bloq ? cod_bloq.padStart(3, '0') : '';
+        let formattedCodPiso = cod_piso ? cod_piso.padStart(2, '0') : '';
 
-      if (id_tipo_piso === 5) {
-        // Si el tipo de piso es PISO (código 5)
-        formattedCodPiso = `P${formattedCodPiso}`;
-      } else if (id_tipo_piso === 6) {
-        // Si el tipo de piso es SUBSUELO (código 6)
-        formattedCodPiso = `S${formattedCodPiso}`;
+        if (id_tipo_piso === 5) {
+          // Si el tipo de piso es PISO (código 5)
+          formattedCodPiso = `P${formattedCodPiso}`;
+        } else if (id_tipo_piso === 6) {
+          // Si el tipo de piso es SUBSUELO (código 6)
+          formattedCodPiso = `S${formattedCodPiso}`;
+        }
+
+        this.form.clave_catastral = `${id_par}${cod_zon}${cod_sec}${formattedCodPolMan}${formattedCodPred}${formattedCodUni}${formattedCodBloq}${formattedCodPiso}`;
       }
+    },
 
-      this.form.clave_catastral = `${id_par}${cod_zon}${cod_sec}${formattedCodPolMan}${formattedCodPred}${formattedCodUni}${formattedCodBloq}${formattedCodPiso}`;
-    }
-  },
+    // Navegar a la página de menú urbano
+    navigateToMenuUrbano() {
+      this.$router.push('/menu-urbano');
+    },
+    // Valida si el régimen de propiedad es propiedad horizontal
+    handleRegimenChange() {
+      if (this.form.id_regimen_propiedad !== 4) {
+        this.limpiarCampos();
+      }
+    },
 
   }, // Fin de métodos
-
-  // Cancatenar descripción de parroquia
-  computed: {
-    formattedParroquias() {
-      return this.parroquias.map(parroquia => ({
-        ...parroquia,
-        descripcion: `${parroquia.dpa} - ${parroquia.descripcion}`
-      }));
-    }
-  },
-  // Cargar
-  async mounted() {
-    // Cargar catálogos
-    try {
-      console.log('Componente montado');
-      this.tipoPredios = await this.fetchCatalogo(1); // Obtén los datos para el tipo de persona
-      this.regimens = await this.fetchCatalogo(2); // Obtén los datos para el tipo de persona
-      this.tipoPisos = await this.fetchCatalogo(3); // Obtén los datos para el tipo de persona
-      this.unidadAreas = await this.fetchCatalogo(8); // Obtén los datos para el tipo de area
-      this.parroquias = await this.fetchParroquia(); // Obtén los datos para el tipo de persona
-      console.log('Datos del catálogo cargados:', this.tipoPredios, this.regimens, this.tipoPisos);
-      console.log('Datos de parroquias cargados:', this.parroquias);
-    } catch (error) {
-      console.error('Error al montar el componente:', error);
-    }
-    // Cargar parroquias
-    try {
-      console.log('Componente montado');
-      this.parroquias = await this.fetchParroquia(); 
-      console.log('Datos de parroquias cargados:', this.parroquias);
-    } catch (error) {
-      console.error('Error al montar el componente:', error);
-    }
-  },
-
-
 };
+
 </script>
 
 <style scoped>
