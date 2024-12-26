@@ -42,6 +42,17 @@ import GridViviendasRegistradas from '@/components/urbano/reportes/GridViviendas
 import GridContribuyentesRegistrados from '@/components/urbano/reportes/GridContribuyentesRegistrados.vue';
 import GridCiudadanos from '@/components/parametrizacion/GridCiudadanos.vue';
 import FormIdentificacion from '@/components/urbano/FormIdentificacion.vue';
+import FormValoresPeritajeUrbano from '@/components/valoracion/FormValoresPeritajeUrbano.vue';
+import GridValSueloCalcUrb from '@/components/valoracion/GridValSueloCalcUrb.vue';
+import GridValMejorasCalcUrb from '@/components/valoracion/GridValMejorasCalcUrb.vue';
+import GridValPredioCalcUrb from '@/components/valoracion/GridValPredioCalcUrb.vue';
+import GridValValoracionUrb from '@/components/valoracion/GridValValoracionUrb.vue';
+import FormTipologia from '@/components/valoracion/FormTipologia.vue';
+import GridTipologiaUrb from '@/components/valoracion/GridTipologiaUrb.vue';
+import FormFactorTamanioUrb from '@/components/valoracion/FormFactorTamanioUrb.vue';
+import GridFactorTamanioUrb from '@/components/valoracion/GridFactorTamanioUrb.vue';
+import FormFittoCorvini from '@/components/valoracion/FormFittoCorvini.vue';
+import GridFittoCorvini from '@/components/valoracion/GridFittoCorvini.vue';
 
 
 Vue.use(Router);
@@ -201,6 +212,75 @@ const routes = [
     component: ValoracionRural, 
   },
 
+  {
+    path: '/valora-peritaje_urb',
+    name: 'PeritajeUrbano',
+    component: FormValoresPeritajeUrbano,
+
+  },
+
+  {
+    path: '/val-suelo-cal-urb',
+    name: 'ValSueloCalUrb',
+    component: GridValSueloCalcUrb,
+  },
+
+  {
+    path: '/val-mejoras-cal-urb',
+    name: 'ValMejorasCalUrb',
+    component: GridValMejorasCalcUrb,
+  },
+
+  {
+    path: '/val-predio-cal-urb',
+    name: 'ValPredioCalUrb',
+    component: GridValPredioCalcUrb,
+  },
+
+  {
+    path: '/valores-peritaje_urb',
+    name: 'ValPatrimonioUrb',
+    component: GridValValoracionUrb,
+  },
+
+  {
+    path: '/tipologia-urbana',
+    name: 'TipologiaUrbana',
+    component: FormTipologia,
+  },
+
+  {
+    path: '/grid-tipologia-urbana',
+    name: 'GridTipologiaUrbana',
+    component: GridTipologiaUrb,
+  },
+
+  {
+    path: '/form-factor-tamanio-urb',
+    name: 'FormFatorTamanioUrb',
+    component: FormFactorTamanioUrb,
+  },
+
+  {
+    path: '/grid-factor-tamanio-urb',
+    name: 'GridFactorTamanioUrb',
+    component: GridFactorTamanioUrb,
+  },
+
+  {
+    path: '/form-fitto-corvini',
+    name: 'FormFittoCorvini',
+    component: FormFittoCorvini,
+  },
+
+  {
+    path: '/grid-fitto-corvini',
+    name: 'GridFittoCorvini',
+    component: GridFittoCorvini,
+  },
+
+
+
   /* Listado Predios */
   {
     path: '/grid-listado-urbano',
@@ -213,7 +293,6 @@ const routes = [
     name: 'ListadoRural',
     component: GridListadoRural, 
   },
-
 
   /* Gestion Documental */
   {

@@ -85,21 +85,39 @@
             <v-list-item @click="$router.push('/busqueda-urbana')">
               <v-list-item-title>Certificado Catastral</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="$router.push('/grid-listado-urbano')">
+            <v-list-item @click="$router.push('/valora-peritaje_urb')">
               <v-list-item-title>Valores Comerciales o de Peritaje</v-list-item-title>
             </v-list-item>              
-            <v-list-item @click="$router.push('/gestion-doc-urbana')">
+            <v-list-item @click="$router.push('/val-suelo-cal-urb')">
               <v-list-item-title>Valoración Suelo Factores</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="$router.push('/opcion1')">
+            <v-list-item @click="$router.push('/val-mejoras-cal-urb')">
               <v-list-item-title>Valoración Mejoras Obras</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="$router.push('/opcion2')">
+            <v-list-item @click="$router.push('/val-predio-cal-urb')">
               <v-list-item-title>Valoración Predio Resultado</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="$router.push('/opcion3')">
+            <v-list-item @click="$router.push('/valores-peritaje-urb')">
               <v-list-item-title>Valoración - Patrimonio</v-list-item-title>
-            </v-list-item>                         
+            </v-list-item>     
+            <v-list-item @click="$router.push('/grid-tipologia-urbana')">
+              <v-list-item-title>Listado Tipología</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="$router.push('/tipologia-urbana')">
+              <v-list-item-title>Ingreso Tipologia</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="$router.push('/grid-factor-tamanio-urb')">
+              <v-list-item-title>Listado Factor Tamaño</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="$router.push('/form-factor-tamanio-urb')">
+              <v-list-item-title>Ingreso Factor Tamaño</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="$router.push('/grid-fitto-corvini')">
+              <v-list-item-title>Listado Fitto Corvini</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="$router.push('/form-fitto-corvini')">
+              <v-list-item-title>Ingreso Fitto Corvini</v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-menu>
       </v-col>

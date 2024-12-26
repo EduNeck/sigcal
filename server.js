@@ -8,6 +8,7 @@ const reporteFichaModel = require('./db/models/reporteFicha');
 const catastroParroquia = require('./db/models/catastroParroquia');
 const catastroTenenciaModel = require('./db/models/catastroTenencia');
 const geoConsultasModel = require('./db/models/geoConsultas');
+const valoracionModel = require('./db/models/valoracion');
 
 dotenv.config();
 
@@ -51,7 +52,6 @@ app.get('/api/catastro_parroquia', async (req, res) => {
     res.status(500).send('Server Error'); 
   } 
 });
-
 
 // Nueva ruta para obtener el catálogo basado en id_tipo_atributo
 app.get('/api/catalogo', async (req, res) => {
@@ -99,8 +99,6 @@ app.post('/api/catastro_ciudadano', async (req, res) => {
   }
 });
 
-
-
 // Ruta para actualizar un registro por ID
 app.put('/api/catastro_ciudadano/:id', async (req, res) => {
   const { id } = req.params;
@@ -115,7 +113,6 @@ app.put('/api/catastro_ciudadano/:id', async (req, res) => {
 ///////////////////////
 // CATASTRO PREDIO  //
 /////////////////////
-
 
 // Ruta para insertar un registro en la tabla `catastro_predio`
 app.post('/api/catastro_predio', async (req, res) => {
@@ -199,8 +196,6 @@ app.get('/api/catastro_tenencia/:id', async (req, res) => {
   }
 });
 
-
-
 ////////////////////
 // Geo Consultas //
 //////////////////
@@ -220,7 +215,6 @@ app.get('/api/geo_consultas/area_predio/:codCat', async (req, res) => {
     
 });
 
-
 //////////////////////
 // Reportes Fichas //
 ////////////////////
@@ -235,7 +229,84 @@ app.get('/api/ficha_predio', async (req, res) => {
   }
 });
 
+//////////////////
+// Valoración  //
+////////////////
 
+// Ruta para obtener todos los registros de la tabla `valoracion_suelo_cal`
+app.get('/api/valoracion_suelo_cal', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllValSueloCal();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Ruta para obtener todos los registros de la tabla `valoracion_mejoras_cal`
+app.get('/api/valoracion_mejoras_cal', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllValMejorasCal();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Ruta para obtener todos los registros de la tabla `predio_resultado_urb`
+app.get('/api/predio_resultado_urb', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllPredioResultadoUrb();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Ruta para obtener todos los registros de la tabla `valores_patrimonio_urb`
+app.get('/api/valores_patrimonio_urb', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllValoresPatrimonio();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+//  Ruta para obtener todos los registros de la tabla `valores_tipologia_urb` 
+app.get('/api/valores_tipologia_urb', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllTipologiaUrb();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Ruta para obtener todos los registros de la tabla `factor_tamaño_urb`
+app.get('/api/factor_tamanio_urb', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllFactorTamanioUrb();
+    res.json(data ); 
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Ruta para obtener todos los registros de la tabla `val_fito_corvini`
+app.get('/api/fitto_corvini', async (req, res) => {
+  try {
+    const data = await valoracionModel.getAllFittoCorvini();
+    res.json(data);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
+
+
+
+
+// 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
