@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import MenuIngreso from '@/components/MenuIngreso.vue'; 
-import LoginSistema from '@/components/LoginSistema.vue';
 import MenuUrbano from '@/components/MenuUrbano.vue';
 import FormTenecias from '@/components/urbano/FormTenencias.vue';
 import FormBloques from '@/components/urbano/FormBloques.vue';
@@ -53,12 +52,16 @@ import FormFactorTamanioUrb from '@/components/valoracion/FormFactorTamanioUrb.v
 import GridFactorTamanioUrb from '@/components/valoracion/GridFactorTamanioUrb.vue';
 import FormFittoCorvini from '@/components/valoracion/FormFittoCorvini.vue';
 import GridFittoCorvini from '@/components/valoracion/GridFittoCorvini.vue';
+import PantallaInicio from '@/components/PantallaInicio.vue';
+import LoginSistema from '@/components/LoginSistema.vue';
 
 
 Vue.use(Router);
 
 const routes = [
-  { path: '/',  name: 'LoginSistema',  component: LoginSistema, },
+  { path: '/',  name: 'Inicio',  component: PantallaInicio, },
+  
+  { path: '/login',  name: 'Login',  component: LoginSistema, },
 
   { path: '/menu-ingreso', name: 'MenuIngreso', component: MenuIngreso, },
 
