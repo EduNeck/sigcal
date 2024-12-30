@@ -14,6 +14,6 @@ module.exports = defineConfig({
     ],
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/tu-repositorio/'  // Cambia 'tu-repositorio' por el nombre real de tu repositorio
+    ? '/sigcal/'  // Cambia 'tu-repositorio' por el nombre real de tu repositorio
     : '/'
 });
