@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container  class="background"  fluid fill-height>
       <v-row class="text-center">
         <v-col cols="12">
           <v-img
@@ -18,6 +18,11 @@
         <v-col cols="12">
           <v-btn color="primary" @click="$router.push('/login')">INGRESO</v-btn>
         </v-col>
+        <v-col class="mb-4">
+          <h1 class="display-2 font-weight-bold mb-3">
+            SIGCAL
+          </h1>  
+        </v-col>  
       </v-row>
     </v-container>
   </template>
@@ -35,12 +40,15 @@
   }
 
 
-.v-container {
-  background-image: url('@/assets/fondo-cayambe.jpg');
+.background {
   background-size: cover;
   background-position: center;
+  background-color: rgb(218, 218, 218);
   height: 100vh;
-  background-color: blueviolet;
+}
+
+.fill-height {
+  height: 100%;
 }
   </style>
 

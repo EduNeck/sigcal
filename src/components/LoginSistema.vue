@@ -1,16 +1,14 @@
 <template>
-  <v-container fill-height class="d-flex align-center justify-center">
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
+  <v-container class="background" fluid fill-height>
+    <v-row class="fill-height d-flex justify-center align-center">
+      <v-col cols="12" md="8" lg="4">
         <v-card>
-          <v-card-title class="pb-0 d-flex justify-center title-background">
-            <h3>INGRESO</h3>
-          </v-card-title>
+          <v-card-title class="headline">Login</v-card-title>
           <v-card-text>
             <v-form>
               <v-text-field 
-                label="Usuario" 
-                prepend-icon="mdi-account-circle"
+                label="Usuario"
+                prepend-icon="mdi-account"
               />
               <v-text-field 
                 :type="showPassword ? 'text' : 'password'" 
@@ -37,34 +35,36 @@
   </v-container>
 </template>
 
-  <script>
-    export default {
-      name: 'LoginSistema',
-      data() {
-        return {
-          showPassword: false,
-        }
-      }
+<script>
+export default {
+  name: 'LoginSistema',
+  data() {
+    return {
+      showPassword: false,
     }
-  </script>
-  
-  <style scoped>
-
-  .full-height-main {
-    height: 100vh; /* Alto completo de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .title-background {
-    background-color:#494a53 ; /* Color de fondo (puedes ajustarlo) */
-    color: #F1ECE7; /* Color del texto */
-    padding: 10px; /* Espacio alrededor del texto */
-    border-radius: 4px; /* Esquinas redondeadas */
-    text-align: center;
-    border: 0.5px solid #090909
-  }
+}
+</script>
 
-  </style>
-  
+<style scoped>
+.background {
+  background-image: url('../assets/fondo-cayambe.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.fill-height {
+  height: 100%;
+}
+
+.title-background {
+  background-color:#494a53 ; /* Color de fondo (puedes ajustarlo) */
+  color: #F1ECE7; /* Color del texto */
+  padding: 10px; /* Espacio alrededor del texto */
+  border-radius: 4px; /* Esquinas redondeadas */
+  text-align: center;
+  border: 0.5px solid #090909
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="background">
     <v-main>
       <router-view></router-view>
     </v-main>    
@@ -13,7 +13,8 @@ export default {
 </script>
 
 <style scoped>
-
-
+.background {
+  background-color: #bbbbbb; /* Cambia este color al que desees */
+  min-height: 100vh;
+}
 </style>
-

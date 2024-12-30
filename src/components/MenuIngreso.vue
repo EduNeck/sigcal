@@ -30,7 +30,7 @@
       <v-card-actions>
         <v-row justify="center" class="w-100">
           <v-col cols="auto" class="d-flex justify-center">
-            <v-btn color=#F2AA1F style="color: white;" @click="$router.push('/')">Salir</v-btn>
+            <v-btn color=#F2AA1F style="color: white;" @click="$router.push('/login')">Salir</v-btn>
           </v-col>
         </v-row>
       </v-card-actions>

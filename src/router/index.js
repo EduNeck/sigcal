@@ -52,8 +52,8 @@ import FormFactorTamanioUrb from '@/components/valoracion/FormFactorTamanioUrb.v
 import GridFactorTamanioUrb from '@/components/valoracion/GridFactorTamanioUrb.vue';
 import FormFittoCorvini from '@/components/valoracion/FormFittoCorvini.vue';
 import GridFittoCorvini from '@/components/valoracion/GridFittoCorvini.vue';
-import PantallaInicio from '@/components/PantallaInicio.vue';
 import LoginSistema from '@/components/LoginSistema.vue';
+import PantallaInicio from '@/components/PantallaInicio.vue';
 
 
 Vue.use(Router);
