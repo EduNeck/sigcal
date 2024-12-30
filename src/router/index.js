@@ -58,61 +58,25 @@ import GridFittoCorvini from '@/components/valoracion/GridFittoCorvini.vue';
 Vue.use(Router);
 
 const routes = [
-  {
-    path: '/',
-    name: 'LoginSistema',
-    component: LoginSistema, // Apunta al componente principal o una pantalla inicial
-  },
+  { path: '/',  name: 'LoginSistema',  component: LoginSistema, },
 
-  {
-    path: '/menu-ingreso',
-    name: 'MenuIngreso',
-    component: MenuIngreso, 
-  },
+  { path: '/menu-ingreso', name: 'MenuIngreso', component: MenuIngreso, },
 
   /* Menus Sistema */
-  {
-    path: '/menu-urbano',
-    name: 'MenuUrbano',
-    component: MenuUrbano, 
-  },
+  { path: '/menu-urbano', name: 'MenuUrbano', component: MenuUrbano, },
 
-  {
-    path: '/menu-rural',
-    name: 'MenuRural',
-    component: MenuRural, 
-  },
+  { path: '/menu-rural', name: 'MenuRural', component: MenuRural, },
 
-  {
-    path: '/navegacion-predios',
-    name: 'NavegacionPredios',
-    component: NavegacionPredios, 
-  },
+  { path: '/navegacion-predios', name: 'NavegacionPredios', component: NavegacionPredios, },
 
-  {
-    path: '/navegacion-predios-rurales',
-    name: 'NavegacionPrediosRurales',
-    component: NavegacionPrediosRural, 
-  },
+  { path: '/navegacion-predios-rurales', name: 'NavegacionPrediosRurales', component: NavegacionPrediosRural, },
 
   /* Urbano Catastro */
-  {
-    path: '/form-identificacion',
-    name: 'FormIdentificacion',
-    component: FormIdentificacion, 
-  },
+  { path: '/form-identificacion', name: 'FormIdentificacion', component: FormIdentificacion, },
 
-  {
-    path: '/form-tenencia',
-    name: 'FormTenencias',
-    component: FormTenecias, 
-  },
+  { path: '/form-tenencia', name: 'FormTenencias', component: FormTenecias, },
 
-  {
-    path: '/form-bloques',
-    name: 'FormBloques',
-    component: FormBloques, 
-  },
+  { path: '/form-bloques', name: 'FormBloques', component: FormBloques, },
 
   {
     path: '/form-caracteristicas',
