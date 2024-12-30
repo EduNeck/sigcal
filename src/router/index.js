@@ -59,11 +59,23 @@ import LoginSistema from '@/components/LoginSistema.vue';
 Vue.use(Router);
 
 const routes = [
-  { path: '/',  name: 'Inicio',  component: PantallaInicio, },
+  { 
+    path: '/',   
+    component: PantallaInicio
+  },
   
-  { path: '/login',  name: 'Login',  component: LoginSistema, },
+  { 
+    path: '/login',  
+    name: 'Login',  
+    component: LoginSistema 
+  },
 
-  { path: '/menu-ingreso', name: 'MenuIngreso', component: MenuIngreso, },
+  { 
+    path: 
+    '/menu-ingreso', 
+    name: 'MenuIngreso', 
+    component: MenuIngreso 
+  },
 
   /* Menus Sistema */
   { path: '/menu-urbano', name: 'MenuUrbano', component: MenuUrbano, },
@@ -359,7 +371,5 @@ const routes = [
 
 ];
 
-export default new Router({
-  mode: 'history', 
-  routes,
-});
+
+export default new Router({ mode: 'history', base: process.env.BASE_URL, routes, });

@@ -27,6 +27,7 @@
               <v-col cols="auto" class="d-flex justify-center">              
                 <!-- <v-btn color="success">Registro</v-btn> -->                             
                 <v-btn color="info" @click="$router.push('/menu-ingreso')">Ingreso</v-btn>
+                <v-btn color="info" @click="$router.push('/')">Salir</v-btn>
               </v-col>
             </v-row>              
           </v-card-actions>

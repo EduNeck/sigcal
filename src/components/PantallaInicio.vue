@@ -33,4 +33,14 @@
     color: #3f51b5;
     font-size: 2vw; /* Ajusta el tamaño de fuente según el ancho de la ventana */
   }
+
+
+.v-container {
+  background-image: url('@/assets/fondo-cayambe.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-color: blueviolet;
+}
   </style>
+
